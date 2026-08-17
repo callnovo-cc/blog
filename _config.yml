@@ -1,0 +1,35 @@
+title: Callnovo Blog
+description: Insights on outsourced customer support, BPO, AI-powered CX, and global contact center operations.
+url: "https://callnovo.ai"
+baseurl: "/blog"
+
+# Build
+markdown: kramdown
+highlighter: rouge
+permalink: /blog/:year/:month/:day/:title/
+
+# SEO & social
+author:
+  name: Callnovo Contact Center
+  url: https://callnovo.ai
+
+# Plugins (all whitelisted on GitHub Pages)
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
+# Exclude from build
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+      author: Callnovo Contact Center
