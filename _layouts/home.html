@@ -91,18 +91,38 @@ layout: default
 <section class="topic-sections">
   <div class="site-shell">
     <div class="topic-sections-grid">
-      <div class="topic-section-card">
-        <p class="featured-label">Pricing & Commercial Models</p>
-        <h2><a href="{{ '/categories/' | relative_url }}#bpo">BPO pricing, outsourcing models, and vendor economics</a></h2>
-        <p>See how contact center pricing actually works across per-FTE, transaction-based, and outcome-based models.</p>
-      </div>
+      <article class="topic-section-card">
+        <p class="featured-label">Explore every topic</p>
+        <h2><a href="{{ '/categories/' | relative_url }}">Browse the Callnovo category index</a></h2>
+        <p>Find articles organized by the subjects that matter: pricing, BPO, AI-powered CX, customer support, and contact center operations.</p>
+      </article>
 
-      <div class="topic-section-card">
-        <p class="featured-label">AI + Human Delivery</p>
-        <h2><a href="{{ '/categories/' | relative_url }}#ai">AI-powered CX without losing human judgment</a></h2>
-        <p>Read practical breakdowns of automation, escalation design, hybrid support, and AI-assisted service operations.</p>
-      </div>
+      {% assign recent_ai_posts = site.categories.ai | slice: 0, 1 %}
+      {% if recent_ai_posts.size > 0 %}
+        {% assign recent_ai_post = recent_ai_posts.first %}
+        <article class="topic-section-card">
+          <p class="featured-label">Latest in AI</p>
+          <h2><a href="{{ recent_ai_post.url | relative_url }}">{{ recent_ai_post.title }}</a></h2>
+          {% if recent_ai_post.description %}
+            <p>{{ recent_ai_post.description }}</p>
+          {% endif %}
+        </article>
+      {% endif %}
 
+      {% assign recent_bpo_posts = site.categories.bpo | slice: 0, 1 %}
+      {% if recent_bpo_posts.size > 0 %}
+        {% assign recent_bpo_post = recent_bpo_posts.first %}
+        <article class="topic-section-card">
+          <p class="featured-label">Latest in BPO</p>
+          <h2><a href="{{ recent_bpo_post.url | relative_url }}">{{ recent_bpo_post.title }}</a></h2>
+          {% if recent_bpo_post.description %}
+            <p>{{ recent_bpo_post.description }}</p>
+          {% endif %}
+        </article>
+      {% endif %}
+    </div>
+  </div>
+</section>
       <div class="topic-section-card">
         <p class="featured-label">Operations</p>
         <h2><a href="{{ '/categories/' | relative_url }}#contact-center">Contact center operations, staffing, and service design</a></h2>
