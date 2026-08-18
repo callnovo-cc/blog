@@ -586,5 +586,70 @@ a:hover {
   .publication-note-box,
   .related-card {
     padding: 22px;
+
+.featured-image,
+.post-card-image {
+  display: block;
+  overflow: hidden;
+  border-radius: 18px;
+  margin-bottom: 18px;
+}
+
+.featured-image img,
+.post-card-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.topic-sections {
+  padding: 0 0 84px;
+}
+
+.topic-sections-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.topic-section-card {
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  box-shadow: var(--shadow-sm);
+}
+
+.topic-section-card h2 {
+  margin: 0 0 10px;
+  font-size: 1.3rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.topic-section-card h2 a {
+  color: var(--text);
+}
+
+.topic-section-card p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.category-page {
+  padding: 56px 0 10px;
+}
+
+.tag {
+  text-decoration: none !important;
+}
+
+.topic-chip {
+  text-decoration: none !important;
+}
+
+@media (max-width: 900px) {
+  .topic-sections-grid {
+    grid-template-columns: 1fr;
   }
 }
