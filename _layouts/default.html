@@ -1,56 +1,110 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>{% if page.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+  <meta property="og:title" content="{{ page.title | default: site.title }}">
+  <meta property="og:description" content="{{ page.description | default: site.description }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:site_name" content="{{ site.title }}">
+  {% if page.image %}
+  <meta property="og:image" content="{{ page.image | absolute_url }}">
+  {% endif %}
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ page.title | default: site.title }}">
+  <meta name="twitter:description" content="{{ page.description | default: site.description }}">
+  {% if page.image %}
+  <meta name="twitter:image" content="{{ page.image | absolute_url }}">
+  {% endif %}
+
+  <!-- Favicon -->
+  <link rel="icon" href="{{ '/favicon.ico' | relative_url }}">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 
-  {% seo %}
-
+  <!-- Organization schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Callnovo Contact Center",
+    "name": "Callnovo",
     "url": "https://callnovo.ai/",
-    "description": "Callnovo provides multilingual customer support, BPO, contact center operations, and AI-powered customer experience services.",
-    "sameAs": [
-      "https://callnovo.ai/"
-    ]
+    "logo": "https://callnovo.ai/favicon.png",
+    "sameAs": []
   }
   </script>
+
+  <!-- Article schema (post pages only) -->
+  {% if page.layout == 'post' %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{{ page.title | escape }}",
+    "description": "{{ page.description | escape }}",
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+    "author": {
+      "@type": "Organization",
+      "name": "Callnovo"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Callnovo",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://callnovo.ai/favicon.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ page.url | absolute_url }}"
+    }
+    {% if page.image %},"image": "{{ page.image | absolute_url }}"{% endif %}
+  }
+  </script>
+  {% endif %}
+
+  {% feed_meta %}
 </head>
 <body>
-  <a class="skip-link" href="#content">Skip to content</a>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
   <header class="site-header">
-  <div class="site-shell header-shell">
-    <a class="site-brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    <div class="site-shell header-shell">
+      <a class="site-brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="{{ '/' | relative_url }}">Home</a>
+        <a href="{{ '/categories/' | relative_url }}">Categories</a>
+        <a href="{{ '/about/' | relative_url }}">About</a>
+        <a href="{{ '/editorial-standards/' | relative_url }}">Editorial Standards</a>
+        <a href="https://callnovo.ai/" target="_blank" rel="noopener noreferrer">Callnovo.ai</a>
+      </nav>
+    </div>
+  </header>
 
-    <nav class="site-nav" aria-label="Main navigation">
-      <a href="{{ '/' | relative_url }}">Blog</a>
-      <a href="{{ '/categories/' | relative_url }}">Topics</a>
-      <a href="{{ '/about/' | relative_url }}">About</a>
-      <a href="{{ '/editorial-standards/' | relative_url }}">Standards</a>
-      <a href="https://callnovo.ai/" target="_blank" rel="noopener noreferrer">Callnovo.ai</a>
-      <a href="https://callnovo.ai/contact/" target="_blank" rel="noopener noreferrer">Contact</a>
-    </nav>
-  </div>
-</header>
-
-  <main id="content" class="site-main">
+  <main class="site-main" id="main-content">
     {{ content }}
   </main>
 
   <footer class="site-footer">
-  <div class="site-shell footer-shell">
-    <p>{{ site.title }} — Practical insights on outsourced customer support, AI-powered CX, and global contact center operations.</p>
-  </div>
-</footer>
+    <div class="site-shell footer-shell">
+      <p>&copy; {{ 'now' | date: "%Y" }} Callnovo. All rights reserved.</p>
+    </div>
+  </footer>
 </body>
 </html>
