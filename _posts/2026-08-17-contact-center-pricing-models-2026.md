@@ -2,7 +2,7 @@
 title: "Contact Center Pricing Models 2026: What You're Actually Paying For"
 description: "A breakdown of contact center pricing models in 2026 — per-FTE, per-transaction, and outcome-based — with real cost ranges and how to compare vendor quotes."
 date: 2026-08-17
-categories: [bpo, contact-center, customer-support, outaourcing, pricing]
+categories: [bpo, contact-center, customer-support, outsourcing, pricing]
 redirect_from:
   - /blog/2026/08/17/contact-center-pricing-models-2026/
 ---
