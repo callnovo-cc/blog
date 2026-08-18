@@ -1,20 +1,29 @@
 title: Callnovo Blog
 description: Insights on outsourced customer support, BPO, AI-powered CX, and global contact center operations.
-url: "https://callnovo-cc.github.io"
-baseurl: "/blog"
+url: https://callnovo-cc.github.io
+baseurl: /blog
 
 # Build
 markdown: kramdown
 theme: null
 highlighter: rouge
-permalink:  /:year/:month/:day/:title/
+permalink: /:year/:month/:day/:title/
 
-# SEO & social
+# Brand, SEO, and social
 author:
   name: Callnovo Contact Center
   url: https://callnovo.ai
 
-# Plugins (all whitelisted on GitHub Pages)
+social:
+  name: Callnovo Contact Center
+  links:
+    - https://callnovo.ai
+
+# Add these only after the matching files exist in assets/images/
+# logo: /assets/images/callnovo-logo.png
+# image: /assets/images/callnovo-blog-social.png
+
+# Plugins supported by GitHub Pages
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
@@ -31,7 +40,7 @@ exclude:
 defaults:
   - scope:
       path: ""
-      type: "posts"
+      type: posts
     values:
       layout: post
       author: Callnovo Contact Center
