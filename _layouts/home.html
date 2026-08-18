@@ -2,11 +2,52 @@
 layout: default
 ---
 
+{% assign featured = site.posts.first %}
+
 <section class="home-hero">
-  <div class="site-shell site-shell-narrow">
-    <p class="eyebrow">Callnovo Insights</p>
-    <h1>{{ site.title }}</h1>
-    <p class="home-intro">{{ site.description }}</p>
+  <div class="site-shell">
+    <div class="home-hero-grid">
+      <div class="home-hero-copy">
+        <p class="eyebrow">Callnovo Insights</p>
+        <h1>{{ site.title }}</h1>
+        <p class="home-intro">{{ site.description }}</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="{{ featured.url | relative_url }}">Read latest article</a>
+          <a class="button button-secondary" href="https://callnovo.ai/contact/" target="_blank" rel="noopener noreferrer">Talk to Callnovo</a>
+        </div>
+      </div>
+
+      {% if featured %}
+      <article class="featured-card">
+        <p class="featured-label">Featured</p>
+        <p class="post-meta">{{ featured.date | date: "%b %-d, %Y" }}</p>
+        <h2><a href="{{ featured.url | relative_url }}">{{ featured.title }}</a></h2>
+        {% if featured.description %}
+          <p class="featured-description">{{ featured.description }}</p>
+        {% endif %}
+        {% if featured.categories %}
+          <div class="tag-row">
+            {% for category in featured.categories limit:3 %}
+              <span class="tag">{{ category }}</span>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </article>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<section class="topic-strip">
+  <div class="site-shell">
+    <div class="topic-strip-inner">
+      <span class="topic-chip">BPO</span>
+      <span class="topic-chip">Customer Support</span>
+      <span class="topic-chip">AI-Powered CX</span>
+      <span class="topic-chip">Multilingual Support</span>
+      <span class="topic-chip">Contact Center Operations</span>
+      <span class="topic-chip">Pricing Models</span>
+    </div>
   </div>
 </section>
 
@@ -15,12 +56,26 @@ layout: default
     {% for post in site.posts %}
       <article class="post-card">
         <p class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</p>
+
+        {% if post.categories %}
+          <div class="tag-row tag-row-compact">
+            {% for category in post.categories limit:3 %}
+              <span class="tag">{{ category }}</span>
+            {% endfor %}
+          </div>
+        {% endif %}
+
         <h2 class="post-card-title">
           <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
         </h2>
+
         {% if post.description %}
           <p class="post-card-description">{{ post.description }}</p>
         {% endif %}
+
+        <p class="post-card-link">
+          <a href="{{ post.url | relative_url }}">Read article</a>
+        </p>
       </article>
     {% endfor %}
   </div>
