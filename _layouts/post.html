@@ -6,7 +6,17 @@ layout: default
   <div class="site-shell site-shell-article">
     <header class="article-header">
       <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}</p>
+
+      {% if page.categories %}
+        <div class="tag-row tag-row-compact article-tags">
+          {% for category in page.categories %}
+            <span class="tag">{{ category }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
+
       <h1>{{ page.title }}</h1>
+
       {% if page.description %}
         <p class="article-dek">{{ page.description }}</p>
       {% endif %}
@@ -15,5 +25,42 @@ layout: default
     <div class="article-body">
       {{ content }}
     </div>
+
+    <section class="article-cta">
+      <div class="article-cta-box">
+        <p class="cta-eyebrow">Talk to Callnovo</p>
+        <h2>Need a support model that actually fits your volume, channels, and languages?</h2>
+        <p>Callnovo helps brands run multilingual customer support with humans, software, and AI working as one operating system.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="https://callnovo.ai/contact/" target="_blank" rel="noopener noreferrer">Request a consultation</a>
+          <a class="button button-secondary" href="https://callnovo.ai/" target="_blank" rel="noopener noreferrer">Visit Callnovo.ai</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="publication-note">
+      <div class="publication-note-box">
+        <p class="cta-eyebrow">About this publication</p>
+        <p><strong>Callnovo Blog</strong> publishes practical analysis on outsourced customer support, AI-powered CX, multilingual operations, and contact center economics.</p>
+      </div>
+    </section>
+
+    {% assign related_posts = site.related_posts | where_exp: "post", "post.url != page.url" | limit: 3 %}
+    {% if related_posts and related_posts.size > 0 %}
+    <section class="related-posts">
+      <h2>Related articles</h2>
+      <div class="related-grid">
+        {% for post in related_posts %}
+          <article class="related-card">
+            <p class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</p>
+            <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+            {% if post.description %}
+              <p>{{ post.description }}</p>
+            {% endif %}
+          </article>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
   </div>
 </article>
