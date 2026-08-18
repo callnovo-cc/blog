@@ -19,6 +19,12 @@ layout: default
 
       {% if featured %}
       <article class="featured-card">
+        {% if featured.image %}
+          <a class="featured-image" href="{{ featured.url | relative_url }}">
+            <img src="{{ featured.image | relative_url }}" alt="{{ featured.image_alt | default: featured.title }}">
+          </a>
+        {% endif %}
+
         <p class="featured-label">Featured</p>
         <p class="post-meta">{{ featured.date | date: "%b %-d, %Y" }}</p>
         <h2><a href="{{ featured.url | relative_url }}">{{ featured.title }}</a></h2>
@@ -53,6 +59,12 @@ layout: default
   <div class="site-shell site-shell-narrow">
     {% for post in site.posts %}
       <article class="post-card">
+        {% if post.image %}
+          <a class="post-card-image" href="{{ post.url | relative_url }}">
+            <img src="{{ post.image | relative_url }}" alt="{{ post.image_alt | default: post.title }}">
+          </a>
+        {% endif %}
+
         <p class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</p>
 
         {% if post.categories %}
@@ -76,5 +88,29 @@ layout: default
         </p>
       </article>
     {% endfor %}
+  </div>
+</section>
+
+<section class="topic-sections">
+  <div class="site-shell">
+    <div class="topic-sections-grid">
+      <div class="topic-section-card">
+        <p class="featured-label">Pricing & Commercial Models</p>
+        <h2><a href="{{ '/category/bpo/' | relative_url }}">BPO pricing, outsourcing models, and vendor economics</a></h2>
+        <p>See how contact center pricing actually works across per-FTE, transaction-based, and outcome-based models.</p>
+      </div>
+
+      <div class="topic-section-card">
+        <p class="featured-label">AI + Human Delivery</p>
+        <h2><a href="{{ '/category/ai/' | relative_url }}">AI-powered CX without losing human judgment</a></h2>
+        <p>Read practical breakdowns of automation, escalation design, hybrid support, and AI-assisted service operations.</p>
+      </div>
+
+      <div class="topic-section-card">
+        <p class="featured-label">Operations</p>
+        <h2><a href="{{ '/category/contact-center/' | relative_url }}">Contact center operations, staffing, and service design</a></h2>
+        <p>Explore how multilingual support teams are structured, measured, and scaled across channels and regions.</p>
+      </div>
+    </div>
   </div>
 </section>
