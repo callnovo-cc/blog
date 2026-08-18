@@ -5,8 +5,7 @@ date: 2026-08-17
 categories: [ai, bpo, automation, contact-center, customer-support, hybrid-support]
 ---
 
-![A modern support floor where human agents and AI systems handle different tiers of the same conversation.]({{ '/assets/images/article-01-ai-human-hybrid-support-hero.png.png' | relative_url }})**AI Human Hybrid Customer Support: Where  
-Automation Stops and Human Judgment Starts**
+![A modern support floor where human agents and AI systems handle different tiers of the same conversation.]({{ '/assets/images/article-01-ai-human-hybrid-support-hero.png.png' | relative_url }})
 
 ***AI human hybrid customer support agent working alongside an AI dashboard in a modern contact center.***
 
