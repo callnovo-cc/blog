@@ -10,7 +10,7 @@ layout: default
       {% if page.categories %}
         <div class="tag-row tag-row-compact article-tags">
           {% for category in page.categories %}
-            <span class="tag">{{ category }}</span>
+            <a class="tag" href="{{ '/categories/' | relative_url }}#{{ category | slugify }}">{{ category }}</a>
           {% endfor %}
         </div>
       {% endif %}
@@ -22,6 +22,12 @@ layout: default
       {% endif %}
     </header>
 
+    {% if page.image %}
+      <figure class="article-featured-image">
+        <img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title }}">
+      </figure>
+    {% endif %}
+
     <div class="article-body">
       {{ content }}
     </div>
@@ -29,8 +35,9 @@ layout: default
     <section class="article-cta">
       <div class="article-cta-box">
         <p class="cta-eyebrow">Talk to Callnovo</p>
-        <h2>Need a support model that actually fits your volume, channels, and languages?</h2>
-        <p>Callnovo helps brands run multilingual customer support with humans, software, and AI working as one operating system.</p>
+        <h2>Need a support model that fits your volume, channels, and languages?</h2>
+        <p>Callnovo helps brands design multilingual customer-support operations that combine skilled people, software, and AI.</p>
+
         <div class="hero-actions">
           <a class="button button-primary" href="https://callnovo.ai/contact/" target="_blank" rel="noopener noreferrer">Request a consultation</a>
           <a class="button button-secondary" href="https://callnovo.ai/" target="_blank" rel="noopener noreferrer">Visit Callnovo.ai</a>
@@ -47,20 +54,31 @@ layout: default
 
     {% assign related_posts = site.related_posts | where_exp: "post", "post.url != page.url" | limit: 3 %}
     {% if related_posts and related_posts.size > 0 %}
-    <section class="related-posts">
-      <h2>Related articles</h2>
-      <div class="related-grid">
-        {% for post in related_posts %}
-          <article class="related-card">
-            <p class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</p>
-            <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-            {% if post.description %}
-              <p>{{ post.description }}</p>
-            {% endif %}
-          </article>
-        {% endfor %}
-      </div>
-    </section>
+      <section class="related-posts">
+        <h2>Related articles</h2>
+
+        <div class="related-grid">
+          {% for post in related_posts %}
+            <article class="related-card">
+              <p class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</p>
+
+              {% if post.categories %}
+                <div class="tag-row tag-row-compact">
+                  {% for category in post.categories limit:2 %}
+                    <a class="tag" href="{{ '/categories/' | relative_url }}#{{ category | slugify }}">{{ category }}</a>
+                  {% endfor %}
+                </div>
+              {% endif %}
+
+              <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+
+              {% if post.description %}
+                <p>{{ post.description }}</p>
+              {% endif %}
+            </article>
+          {% endfor %}
+        </div>
+      </section>
     {% endif %}
   </div>
 </article>
