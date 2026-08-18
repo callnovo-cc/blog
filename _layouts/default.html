@@ -29,26 +29,28 @@
   <a class="skip-link" href="#content">Skip to content</a>
 
   <header class="site-header">
-    <div class="site-shell header-shell">
-      <a class="site-brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+  <div class="site-shell header-shell">
+    <a class="site-brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
 
-      <nav class="site-nav" aria-label="Main navigation">
-        <a href="{{ '/' | relative_url }}">Blog</a>
-        <a href="{{ '/categories/' | relative_url }}">Topics</a>
-        <a href="https://callnovo.ai/" target="_blank" rel="noopener noreferrer">Callnovo.ai</a>
-        <a href="https://callnovo.ai/contact/" target="_blank" rel="noopener noreferrer">Contact</a>
-      </nav>
-    </div>
-  </header>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="{{ '/' | relative_url }}">Blog</a>
+      <a href="{{ '/categories/' | relative_url }}">Topics</a>
+      <a href="{{ '/about/' | relative_url }}">About</a>
+      <a href="{{ '/editorial-standards/' | relative_url }}">Standards</a>
+      <a href="https://callnovo.ai/" target="_blank" rel="noopener noreferrer">Callnovo.ai</a>
+      <a href="https://callnovo.ai/contact/" target="_blank" rel="noopener noreferrer">Contact</a>
+    </nav>
+  </div>
+</header>
 
   <main id="content" class="site-main">
     {{ content }}
   </main>
 
   <footer class="site-footer">
-    <div class="site-shell footer-shell">
-      <p>{{ site.title }} — Practical insights on outsourced customer support, AI-powered CX, and global contact center operations.</p>
-    </div>
-  </footer>
+  <div class="site-shell footer-shell">
+    <p>{{ site.title }} — Practical insights on outsourced customer support, AI-powered CX, and global contact center operations.</p>
+  </div>
+</footer>
 </body>
 </html>
