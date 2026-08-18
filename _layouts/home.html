@@ -11,44 +11,34 @@ layout: default
         <p class="eyebrow">Callnovo Insights</p>
         <h1>{{ site.title }}</h1>
         <p class="home-intro">{{ site.description }}</p>
-
         <div class="hero-actions">
-          {% if featured %}
-            <a class="button button-primary" href="{{ featured.url | relative_url }}">Read latest article</a>
-          {% endif %}
+          <a class="button button-primary" href="{{ featured.url | relative_url }}">Read latest article</a>
           <a class="button button-secondary" href="https://callnovo.ai/contact/" target="_blank" rel="noopener noreferrer">Talk to Callnovo</a>
         </div>
       </div>
 
       {% if featured %}
-        <article class="featured-card">
-          {% if featured.image %}
-            <a class="featured-image" href="{{ featured.url | relative_url }}">
-              <img src="{{ featured.image | relative_url }}" alt="{{ featured.image_alt | default: featured.title }}">
-            </a>
-          {% endif %}
+      <article class="featured-card">
+        {% if featured.image %}
+          <a class="featured-image" href="{{ featured.url | relative_url }}">
+            <img src="{{ featured.image | relative_url }}" alt="{{ featured.image_alt | default: featured.title }}" loading="eager" decoding="async">
+          </a>
+        {% endif %}
 
-          <p class="featured-label">Featured</p>
-          <p class="post-meta">{{ featured.date | date: "%b %-d, %Y" }}</p>
-
-          {% if featured.categories %}
-            <div class="tag-row tag-row-compact">
-              {% for category in featured.categories limit:3 %}
-                <a class="tag" href="{{ '/categories/' | relative_url }}#{{ category | slugify }}">{{ category }}</a>
-              {% endfor %}
-            </div>
-          {% endif %}
-
-          <h2><a href="{{ featured.url | relative_url }}">{{ featured.title }}</a></h2>
-
-          {% if featured.description %}
-            <p class="featured-description">{{ featured.description }}</p>
-          {% endif %}
-
-          <p class="post-card-link">
-            <a href="{{ featured.url | relative_url }}">Read article</a>
-          </p>
-        </article>
+        <p class="featured-label">Featured</p>
+        <p class="post-meta">{{ featured.date | date: "%b %-d, %Y" }}</p>
+        <h2><a href="{{ featured.url | relative_url }}">{{ featured.title }}</a></h2>
+        {% if featured.description %}
+          <p class="featured-description">{{ featured.description }}</p>
+        {% endif %}
+        {% if featured.categories %}
+          <div class="tag-row">
+            {% for category in featured.categories limit:3 %}
+              <a class="tag" href="{{ '/categories/' | relative_url }}#{{ category | slugify }}">{{ category }}</a>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </article>
       {% endif %}
     </div>
   </div>
@@ -57,15 +47,7 @@ layout: default
 <section class="topic-strip">
   <div class="site-shell">
     <div class="topic-strip-inner">
-      {% assign sorted_categories = site.categories | sort %}
-      {% for category in sorted_categories %}
-        {% assign category_name = category[0] %}
-        {% assign posts_in_category = category[1] %}
-        <a class="topic-chip" href="{{ '/categories/' | relative_url }}#{{ category_name | slugify }}">
-          {{ category_name }}
-          <span aria-label="{{ posts_in_category | size }} articles">({{ posts_in_category | size }})</span>
-        </a>
-      {% endfor %}
+      <a class="topic-chip" href="{{ '/categories/' | relative_url }}">Browse categories</a>
     </div>
   </div>
 </section>
@@ -76,7 +58,7 @@ layout: default
       <article class="post-card">
         {% if post.image %}
           <a class="post-card-image" href="{{ post.url | relative_url }}">
-            <img src="{{ post.image | relative_url }}" alt="{{ post.image_alt | default: post.title }}">
+            <img src="{{ post.image | relative_url }}" alt="{{ post.image_alt | default: post.title }}" loading="lazy" decoding="async">
           </a>
         {% endif %}
 
@@ -103,6 +85,32 @@ layout: default
         </p>
       </article>
     {% endfor %}
+  </div>
+</section>
+
+<section class="topic-sections">
+  <div class="site-shell">
+    <div class="topic-sections-grid">
+      <div class="topic-section-card">
+        <p class="featured-label">Pricing & Commercial Models</p>
+        <h2><a href="{{ '/categories/' | relative_url }}#bpo">BPO pricing, outsourcing models, and vendor economics</a></h2>
+        <p>See how contact center pricing actually works across per-FTE, transaction-based, and outcome-based models.</p>
+      </div>
+
+      <div class="topic-section-card">
+        <p class="featured-label">AI + Human Delivery</p>
+        <h2><a href="{{ '/categories/' | relative_url }}#ai">AI-powered CX without losing human judgment</a></h2>
+        <p>Read practical breakdowns of automation, escalation design, hybrid support, and AI-assisted service operations.</p>
+      </div>
+
+      <div class="topic-section-card">
+        <p class="featured-label">Operations</p>
+        <h2><a href="{{ '/categories/' | relative_url }}#contact-center">Contact center operations, staffing, and service design</a></h2>
+        <p>Explore how multilingual support teams are structured, measured, and scaled across channels and regions.</p>
+      </div>
+    </div>
+  </div>
+</section>    {% endfor %}
   </div>
 </section>
 
