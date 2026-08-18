@@ -277,6 +277,12 @@ a:hover {
   line-height: 1;
 }
 
+.topic-chip:hover,
+.tag:hover {
+  background: #d7ecee;
+  color: var(--brand-dark);
+}
+
 .tag-row-compact {
   margin: 0 0 12px;
 }
@@ -368,6 +374,22 @@ a:hover {
   padding: 56px 0 10px;
 }
 
+.category-block + .category-block {
+  margin-top: 56px;
+}
+
+.category-block-header {
+  margin-bottom: 18px;
+}
+
+.category-block-header h2 {
+  margin: 0 0 6px;
+  font-size: 1.7rem;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--text);
+}
+
 .article-wrap {
   padding: 52px 0 84px;
 }
@@ -392,9 +414,19 @@ a:hover {
 
 .article-dek {
   margin: 18px 0 0;
+  max-width: 42rem;
   font-size: 1.14rem;
   color: var(--text-muted);
-  max-width: 42rem;
+}
+
+.article-featured-image {
+  margin: 0 0 36px;
+}
+
+.article-featured-image img {
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: var(--shadow-md);
 }
 
 .article-body {
@@ -445,15 +477,15 @@ a:hover {
   margin-left: 0;
   padding: 18px 20px;
   border-left: 4px solid var(--brand);
-  background: var(--brand-soft);
   border-radius: 0 12px 12px 0;
+  background: var(--brand-soft);
   color: var(--text);
 }
 
 .article-body hr {
+  margin: 40px 0;
   border: 0;
   border-top: 1px solid var(--border);
-  margin: 40px 0;
 }
 
 .article-body img {
@@ -467,33 +499,33 @@ a:hover {
 
 .article-body code {
   padding: 0.14em 0.35em;
-  background: var(--surface-soft);
   border: 1px solid var(--border);
   border-radius: 6px;
+  background: var(--surface-soft);
   font-size: 0.9em;
 }
 
 .article-body pre {
   overflow-x: auto;
   padding: 18px;
+  border-radius: 14px;
   background: #111827;
   color: #f3f4f6;
-  border-radius: 14px;
   font-size: 0.92rem;
   line-height: 1.6;
 }
 
 .article-body pre code {
   padding: 0;
-  background: transparent;
   border: 0;
+  background: transparent;
   color: inherit;
 }
 
 .article-body table {
   width: 100%;
-  border-collapse: collapse;
   margin: 24px 0;
+  border-collapse: collapse;
   font-size: 0.96rem;
 }
 
@@ -529,9 +561,9 @@ a:hover {
 .article-cta-box,
 .publication-note-box {
   padding: 28px;
-  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 22px;
+  background: var(--surface);
   box-shadow: var(--shadow-sm);
 }
 
@@ -558,9 +590,9 @@ a:hover {
 
 .related-card {
   padding: 20px;
-  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 18px;
+  background: var(--surface);
 }
 
 .related-card h3 {
@@ -580,8 +612,8 @@ a:hover {
 }
 
 .site-footer {
-  border-top: 1px solid var(--border);
   padding: 24px 0 40px;
+  border-top: 1px solid var(--border);
 }
 
 .footer-shell p {
@@ -590,10 +622,7 @@ a:hover {
   color: var(--text-soft);
 }
 
-.tag {
-  text-decoration: none !important;
-}
-
+.tag,
 .topic-chip {
   text-decoration: none !important;
 }
