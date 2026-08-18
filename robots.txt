@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://callnovo.ai/sitemap.xml
+
+Sitemap: https://callnovo-cc.github.io/blog/sitemap.xml
