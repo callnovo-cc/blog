@@ -2,6 +2,35 @@
 layout: default
 ---
 
+{% assign canonical_url = page.url | absolute_url %}
+{% assign article_image = page.image | default: site.image %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": {{ canonical_url | jsonify }}
+  },
+  "headline": {{ page.title | jsonify }},
+  "description": {{ page.description | default: site.description | strip_html | normalize_whitespace | jsonify }},
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+  "author": {
+    "@type": "Organization",
+    "name": {{ page.author | default: site.author.name | jsonify }},
+    "url": "https://callnovo.ai/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Callnovo Contact Center",
+    "url": "https://callnovo.ai/"
+  }{% if article_image %},
+  "image": {{ article_image | absolute_url | jsonify }}{% endif %}
+}
+</script>
+
 <article class="article-wrap">
   <div class="site-shell site-shell-article">
     <header class="article-header">
