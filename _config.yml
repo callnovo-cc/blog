@@ -102,6 +102,7 @@ exclude:
 # files we can't edit (like Search Console verification HTML) we exclude at
 # build via `defaults`.
 defaults:
+  # ── Posts — E-E-A-T + sitemap inclusion + OG image fallback ──────────────
   - scope:
       path: ""
       type: posts
@@ -109,14 +110,22 @@ defaults:
       layout: post
       author: "Callnovo Contact Center"
       sitemap: true
+      image: /assets/images/callnovo-insights-articles-banner.webp             # ← ADDED: post-level default OG image if the post itself doesn't set one
+  # ── All pages (non-posts) — force og:image fallback for social previews ──
   - scope:                                                                     # ← ADDED
+      path: ""
+      type: pages
+    values:
+      image: https://callnovo.ai/og-default.png                                # ← ADDED: fixes missing og:image on homepage, /about/, /categories/, etc.
+  # ── Sitemap exclusions ────────────────────────────────────────────────────
+  - scope:
       path: "googlee78651845662f710.html"
     values:
-      sitemap: false                                                           # keeps the GSC verification file out of the public sitemap
-  - scope:                                                                     # ← ADDED
+      sitemap: false
+  - scope:
       path: "404.html"
     values:
-      sitemap: false                                                           # 404 page shouldn't be in the sitemap either
+      sitemap: false
 
 # ── SEO defaults per collection ─────────────────────────────────────────────
 # ← ADDED: gives every post + page an og:type by default so social previews
