@@ -7,7 +7,7 @@ redirect_from:
   - /blog/2026/08/17/contact-center-pricing-models-2026/
 ---
 
-![Business leader comparing contact center pricing models on a laptop.]({{ '/assets/images/hero-pricing-models-2026.png' | relative_url }})
+![Business leader comparing contact center pricing models on a laptop.]({{ '/assets/images/hero-pricing-models-2026.webp' | relative_url }})
 
 ***Evaluating per-seat, per-resolution, and hourly pricing models for outsourced support.***
 
@@ -89,7 +89,7 @@ A lower rate locked into a 24-month contract with steep early-termination penalt
 None of this means lower rates are suspect by default; it means the rate alone is an incomplete basis for comparison, and a buyer should request a full cost breakdown – not just a per-hour number – before treating any two quotes as genuinely comparable.
 
 **Matching a Pricing Model to Your Volume Pattern**
-![Table comparing per-seat, per-resolution, per-minute, and cost-plus hourly pricing models, with figures added as a text overlay.]({{ '/assets/images/article-02-pricing-model-table.png' | relative_url }})
+![Table comparing per-seat, per-resolution, per-minute, and cost-plus hourly pricing models, with figures added as a text overlay.]({{ '/assets/images/article-02-pricing-model-table.webp' | relative_url }})
 
 ***Table comparing per-seat, per-resolution, per-minute, and cost-plus hourly pricing models, with figures added as a text overlay.***
 
@@ -102,7 +102,7 @@ Structured, easily measured workflows – order status checks, appointment sched
 Mixed contact types spanning all three patterns usually call for a hybrid commercial structure that blends a base FTE block for steady work with transaction or outcome pricing at the margins for variable and/or structured overflow.
 
 **How Callnovo Fits This Picture**
-![Business professional annotating a printed contact center cost comparison sheet.]({{ '/assets/images/article-02-cost-annotation-optional.png' | relative_url }})
+![Business professional annotating a printed contact center cost comparison sheet.]({{ '/assets/images/article-02-cost-annotation-optional.webp' | relative_url }})
 
 ***Reviewing cost tradeoffs is easier with the numbers laid out side by side.***
 
