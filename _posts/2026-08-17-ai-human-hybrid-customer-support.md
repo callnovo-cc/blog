@@ -7,7 +7,7 @@ redirect_from:
   - /blog/2026/08/17/ai-human-hybrid-customer-support/
 ---
 
-![A modern support floor where human agents and AI systems handle different tiers of the same conversation.]({{ '/assets/images/article-01-ai-human-hybrid-support-hero.png.png' | relative_url }})
+![A modern support floor where human agents and AI systems handle different tiers of the same conversation.]({{ '/assets/images/article-01-ai-human-hybrid-support-hero.webp' | relative_url }})
 
 ***AI human hybrid customer support agent working alongside an AI dashboard in a modern contact center.***
 
@@ -41,7 +41,7 @@ Buyers should treat vague claims about "AI-powered support" the same way they wo
 
 **What a Real AI Human Hybrid Customer Support Model Looks Like**
 
-![Chart showing Callnovo's Al and human resolution split, with figures added as a text overlay after generation.]({{ '/assets/images/article-01-resolution-split-chart.png' | relative_url }})
+![Chart showing Callnovo's Al and human resolution split, with figures added as a text overlay after generation.]({{ '/assets/images/article-01-resolution-split-chart.webp' | relative_url }})
 
 ***Chart showing Callnovo's AI and human resolution split, with figures added as a text overlay after generation.***
 
@@ -107,7 +107,7 @@ A vendor who can answer these five questions with specificity, rather than gener
 
 **How Callnovo Fits This Picture**
 
-![Support team reviewing AI-assisted case resolution data on a dashboard.]({{ '/assets/images/article-01-case-study-optional.jpg' | relative_url }})
+![Support team reviewing AI-assisted case resolution data on a dashboard.]({{ '/assets/images/article-01-case-study-optional.webp' | relative_url }})
 ***Support team reviewing AI-assisted case resolution data on a dashboard.***
 
 Callnovo's operating model fits this category because it does not position AI as a total replacement layer for human agents.
