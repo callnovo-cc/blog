@@ -1,54 +1,109 @@
-# Callnovo Blog — GitHub Pages Setup
+# Callnovo Contact Center Blog
 
-## One-time setup
+Live at: **[https://callnovo-cc.github.io/blog/](https://callnovo-cc.github.io/blog/)**
 
-1. **Create a repo** named `callnovo-blog` (or any name) on GitHub — make it public.
-2. Push all these files to the `main` branch.
-3. Go to **Settings → Pages → Source**: select `Deploy from a branch` → branch: `main`, folder: `/ (root)`.
-4. GitHub will publish to `https://yourusername.github.io/callnovo-blog/` within ~60s.
-5. (Optional) Point your custom domain: add a `CNAME` file containing `callnovo.ai` and configure DNS per GitHub's docs.
+Editorial publication covering outsourced customer support, BPO, AI-powered CX, multilingual operations, and contact center economics. Published by [Callnovo Contact Center](https://callnovo.ai/).
 
-## Writing a new article — 3 steps
+## Repository role
 
-1. Create a file in `_posts/` named: `YYYY-MM-DD-your-slug.md`
-2. Add front matter at the top (copy from any existing post):
+This repo (`callnovo-cc/blog`) is a Jekyll project site. It publishes to `/blog/` on the `callnovo-cc.github.io` domain.
+
+Companion repo: `callnovo-cc/callnovo-cc.github.io` — a minimal user-site repo that serves `/robots.txt`, `/sitemap.xml`, and a root redirect at the parent domain root. Do **not** put content there.
+
+## Writing a new article
+
+1. Create `_posts/YYYY-MM-DD-your-slug.md`.
+2. Add front matter — the canonical fields the theme + schema honor:
+
    ```yaml
    ---
-   title: "Your Article Title"
-   description: "One sentence for search engines and social previews."
+   title: "Primary keyword — reader-facing promise"
+   description: "One sentence, 140–160 chars, contains primary keyword and states the answer/benefit."
    date: 2026-08-17
-   categories: [insights]   # or: case-studies, operations, technology
+   last_modified_at: 2026-08-17
+   categories: [insights]              # one of: insights, case-studies, operations, technology
+   tags: [tag-1, tag-2, tag-3]         # 3–6, lowercase-hyphenated
+   image: /assets/images/article-NN-slug-hero.webp
+   image_alt: "Descriptive alt text, ≤ 125 chars."
+   author:                             # emits Person JSON-LD instead of Organization
+     name: "Vince Lupe"
+     url: "https://www.linkedin.com/in/vince-lupe/"
+     job_title: "Marketing Specialist"
+     same_as:
+       - "https://www.linkedin.com/in/vince-lupe/"
+   reviewed_by:                        # optional
+     name: "Reviewer Name"
+     url: "https://..."
+   faq:                                # optional — emits FAQPage JSON-LD
+     - question: "Real search-query phrasing?"
+       answer:   "Self-contained answer, 40–80 words."
+   word_count: 1650                    # optional — populates schema.wordCount
+   based_on: "https://..."             # optional — for mirrored posts, canonical elsewhere
    ---
    ```
-3. Write the article in Markdown below the `---`.
-4. `git add . && git commit -m "post: your title" && git push`
-   → GitHub builds and publishes in ~60 seconds.
 
-## SEO built in
+3. Write in Markdown below the front matter.
+4. Commit and push:
 
-- `jekyll-seo-tag` auto-generates `<title>`, `<meta description>`, Open Graph tags
-- `jekyll-sitemap` generates `/sitemap.xml` automatically — submit to Google Search Console
-- `jekyll-feed` generates `/feed.xml` for RSS readers
-- Canonical URLs are set automatically
-- `robots.txt` allows all crawlers and points to the sitemap
+   ```bash
+   git add . && git commit -m "post: your title" && git push
+   ```
 
-## Folder structure
+   GitHub Pages builds and publishes in ~60 seconds.
 
+## Images
+
+**Format:** WebP always. PNG and JPEG only if a specific reason.
+**Max width:** 1600px. The theme scales down responsively.
+**File size target:** Under 200 KB per image. Compress before commit.
+**Filename convention:** `article-NN-slug-figure.webp` — lowercase, hyphenated, no double extensions.
+
+Batch compression via ImageMagick or Pillow:
+
+```bash
+convert input.png -resize 1600x -quality 82 output.webp
 ```
-_config.yml          ← site settings
-_posts/              ← your articles (YYYY-MM-DD-slug.md)
-_layouts/            ← page templates (don't touch unless customizing)
-assets/css/style.css ← all styling
-index.html           ← homepage (auto-lists posts)
-robots.txt           ← crawler instructions
-Gemfile              ← for local preview only (optional)
-```
 
-## Local preview (optional)
+## What's already in place
+
+- **SEO** — `jekyll-seo-tag` emits canonical, Open Graph, Twitter Card, and Organization schema from `_config.yml`. Config includes 10 verified `sameAs` identity URLs.
+- **Sitemap** — `jekyll-sitemap` builds `/sitemap.xml` on every push. Root fallback at `callnovo-cc.github.io/sitemap.xml` served by the user-site repo.
+- **RSS feed** — `jekyll-feed` builds `/feed.xml`. Limited to 20 latest posts.
+- **Structured data** — `_layouts/default.html` emits Article, BreadcrumbList, and (opt-in) FAQPage JSON-LD per post, with Person-author support and `isBasedOn` for mirrored content.
+- **Editorial standards page** — `/editorial-standards/` documents E-E-A-T commitments.
+- **Redirects** — `jekyll-redirect-from` supports permalink migration via `redirect_from:` in front matter.
+- **Pagination** — 10 posts per page via `jekyll-paginate`.
+
+## Local preview
 
 ```bash
 gem install bundler
 bundle install
 bundle exec jekyll serve
-# → http://localhost:4000
+# → http://localhost:4000/blog/
 ```
+
+## Folder structure
+
+```
+_config.yml                ← site settings (updated 2026-08-19)
+_posts/                    ← articles (YYYY-MM-DD-slug.md)
+_layouts/                  ← page templates
+  default.html               emits site chrome + Article/Breadcrumb/FAQ JSON-LD
+  home.html                  homepage
+  post.html                  single post
+  category.html              individual category archive
+assets/
+  css/style.css              styling
+  images/                    WebP assets under 200 KB each
+about.html                 ← /about/
+categories.html            ← /categories/  index of all categories
+editorial-standards.html   ← /editorial-standards/  E-E-A-T page
+404.html                   ← custom 404
+index.html                 ← homepage stub → home layout
+favicon.ico, favicon.png   ← site icons
+```
+
+## Governance
+
+Every article that discusses services, technologies, or operating models connected to Callnovo's work discloses the relationship. AI-assisted tools are used in research, outlining, and editing; editorial responsibility remains with the named author and reviewer. See [Editorial Standards](https://callnovo-cc.github.io/blog/editorial-standards/) for the full policy.

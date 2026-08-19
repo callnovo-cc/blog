@@ -2,7 +2,7 @@
 layout: default
 title: Categories
 permalink: /categories/
-description: Browse Callnovo blog articles by topic, including BPO, customer support, AI-powered CX, and contact center operations.
+description: Browse Callnovo blog articles by topic — BPO, customer support, AI-powered CX, pricing models, and contact center operations.
 ---
 
 <section class="category-page">
@@ -12,63 +12,63 @@ description: Browse Callnovo blog articles by topic, including BPO, customer sup
     <p class="home-intro">Explore articles by topic across BPO, customer support, AI-powered CX, pricing models, and contact center operations.</p>
 
     <div class="topic-strip-inner">
-      {% assign sorted_categories = site.categories | sort %}
-      {% for category in sorted_categories %}
-        {% assign category_name = category[0] %}
-        {% assign posts_in_category = category[1] %}
+      {%- assign sorted_categories = site.categories | sort -%}
+      {%- for category in sorted_categories -%}
+        {%- assign category_name = category[0] -%}
+        {%- assign posts_in_category = category[1] -%}
         <a class="topic-chip" href="#{{ category_name | slugify }}">
           {{ category_name }} ({{ posts_in_category | size }})
         </a>
-      {% endfor %}
+      {%- endfor -%}
     </div>
   </div>
 </section>
 
 <section class="post-feed">
   <div class="site-shell site-shell-narrow">
-    {% assign sorted_categories = site.categories | sort %}
-    {% for category in sorted_categories %}
-      {% assign category_name = category[0] %}
-      {% assign posts_in_category = category[1] %}
+    {%- assign sorted_categories = site.categories | sort -%}
+    {%- for category in sorted_categories -%}
+      {%- assign category_name = category[0] -%}
+      {%- assign posts_in_category = category[1] -%}
 
       <section class="category-block" id="{{ category_name | slugify }}">
         <div class="category-block-header">
-          <h2>{{ category_name }}</h2>
+          <h2>{{ category_name | capitalize }}</h2>
           <p class="post-meta">{{ posts_in_category | size }} article{% if posts_in_category.size != 1 %}s{% endif %}</p>
         </div>
 
-        {% for post in posts_in_category %}
+        {%- for post in posts_in_category -%}
           <article class="post-card">
-            {% if post.image %}
+            {%- if post.image -%}
               <a class="post-card-image" href="{{ post.url | relative_url }}">
                 <img src="{{ post.image | relative_url }}" alt="{{ post.image_alt | default: post.title }}" loading="lazy" decoding="async">
               </a>
-            {% endif %}
+            {%- endif -%}
 
             <p class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</p>
 
-            {% if post.categories %}
+            {%- if post.categories -%}
               <div class="tag-row tag-row-compact">
-                {% for post_category in post.categories limit:3 %}
+                {%- for post_category in post.categories limit:3 -%}
                   <a class="tag" href="#{{ post_category | slugify }}">{{ post_category }}</a>
-                {% endfor %}
+                {%- endfor -%}
               </div>
-            {% endif %}
+            {%- endif -%}
 
             <h3 class="post-card-title">
               <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
             </h3>
 
-            {% if post.description %}
+            {%- if post.description -%}
               <p class="post-card-description">{{ post.description }}</p>
-            {% endif %}
+            {%- endif -%}
 
             <p class="post-card-link">
               <a href="{{ post.url | relative_url }}">Read article</a>
             </p>
           </article>
-        {% endfor %}
+        {%- endfor -%}
       </section>
-    {% endfor %}
+    {%- endfor -%}
   </div>
 </section>
