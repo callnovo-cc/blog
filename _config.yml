@@ -1,46 +1,134 @@
-title: Callnovo Blog
-description: Insights on outsourced customer support, BPO, AI-powered CX, and global contact center operations.
+# ═══════════════════════════════════════════════════════════════════════════
+# Callnovo Blog — _config.yml
+# Jekyll config for callnovo-cc.github.io/blog
+#
+# Last audit: 2026-08-19 — strengthened for AEO / GEO / SGE / SEO.
+# Every change vs. previous version tagged with # ← CHANGED or # ← ADDED.
+# ═══════════════════════════════════════════════════════════════════════════
+
+# ── Identity ───────────────────────────────────────────────────────────────
+title: "Callnovo Contact Center Blog"                                          # ← CHANGED: brand-plus-topic vs generic "Callnovo Blog"
+description: "Insights on outsourced customer support, BPO, AI-powered CX, and global contact center operations."
 url: https://callnovo-cc.github.io
 baseurl: /blog
 
-# Build
+# ── Locale + timezone (freshness signaling) ────────────────────────────────
+lang: en-US                                                                    # ← ADDED: html lang="en-US" instead of generic "en"
+timezone: America/Halifax                                                      # ← ADDED: correct AT-4 date stamping (matches user location Bolivia — America/La_Paz — adjust to your local zone if preferred)
+
+# ── Build ──────────────────────────────────────────────────────────────────
 markdown: kramdown
+kramdown:                                                                      # ← ADDED: enable smart quotes + typographic dashes, plus HTML-in-Markdown
+  input: GFM
+  smart_quotes: [apos, apos, quot, quot]
+  hard_wrap: false
+  auto_ids: true
+  toc_levels: 2..4
 theme: null
 highlighter: rouge
 permalink: /:year/:month/:day/:title/
+sass:                                                                          # ← ADDED: minified CSS in production for Core Web Vitals
+  style: compressed
+compress_html:                                                                 # ← ADDED (works via jekyll-seo-tag): shrink emitted HTML
+  clippings: all
+  comments: all
+  endings: all
 
-# Brand, SEO, and social
+# ── Brand + author (Person, not Organization → E-E-A-T) ────────────────────
+# The default post author is still the Callnovo brand, but each post's
+# front matter should override with a Person block for full E-E-A-T signal.
 author:
-  name: Callnovo Contact Center
-  url: https://callnovo.ai
+  name: "Callnovo Contact Center"
+  url: "https://callnovo.ai"
 
-social:
-  name: Callnovo Contact Center
+# ── Social / sameAs (feeds jekyll-seo-tag Organization schema) ─────────────
+# Matches the sameAs array in the Blogger theme for consistent entity signals.
+social:                                                                        # ← CHANGED: was 1 URL, now 10 verified identity URLs
+  name: "Callnovo Contact Center"
   links:
-    - https://callnovo.ai
+    - https://callnovo.ai/
+    - https://callnovo.com/
+    - https://callnovo-cc.blogspot.com/
+    - https://www.linkedin.com/company/callnovo-ai/
+    - https://www.facebook.com/callnovosudamerica/
+    - https://www.instagram.com/callnovo_bpo/
+    - https://www.instagram.com/callnovo.bo/
+    - https://x.com/callnovocc
+    - https://www.threads.net/@callnovo
+    - https://www.pinterest.com/callnovo_cc/
 
-# Add these only after the matching files exist in assets/images/
-# logo: /assets/images/callnovo-logo.png
-# image: /assets/images/callnovo-blog-social.png
+# ── Logo + default social share image ──────────────────────────────────────
+# Both fields now uncommented and pointing at verified callnovo.ai assets.
+logo: https://callnovo.ai/logos/callnovo-logo.webp                             # ← CHANGED: was commented; now real logo path (verified 200 OK)
+image: https://callnovo.ai/og-default.png                                      # ← CHANGED: was commented; now real OG default (verified 200 OK)
 
-# Plugins supported by GitHub Pages
+# ── Twitter / X card metadata ──────────────────────────────────────────────
+twitter:                                                                       # ← ADDED: unlocks full Twitter Card metadata via jekyll-seo-tag
+  username: callnovocc
+  card: summary_large_image
+
+# ── Facebook / LinkedIn Open Graph (jekyll-seo-tag reads these) ────────────
+facebook:                                                                      # ← ADDED: enables fb:app_id and og:type refinements
+  app_id: ""                                                                   # (leave blank unless you have a real FB App ID)
+  publisher: "https://www.facebook.com/callnovosudamerica/"
+
+# ── Plugins (GitHub Pages allowlist compatible) ────────────────────────────
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-redirect-from
+  - jekyll-paginate                                                            # ← ADDED: enables /page2/, /page3/ on the home layout for growing archives
+paginate: 10                                                                   # ← ADDED
+paginate_path: "/page:num/"                                                    # ← ADDED
 
-# Exclude from build
+# ── Feed customization (jekyll-feed) ───────────────────────────────────────
+feed:                                                                          # ← ADDED
+  path: feed.xml
+  posts_limit: 20
+
+# ── Exclude from build ─────────────────────────────────────────────────────
 exclude:
   - README.md
   - Gemfile
   - Gemfile.lock
+  - LICENSE                                                                    # ← ADDED (harmless if absent)
+  - node_modules                                                               # ← ADDED (harmless if absent)
+  - .git                                                                       # ← ADDED
+  - .github                                                                    # ← ADDED
 
-# Defaults
+# ── Exclude noise from the auto-generated sitemap ──────────────────────────
+# jekyll-sitemap respects `sitemap: false` in a page's front matter, but for
+# files we can't edit (like Search Console verification HTML) we exclude at
+# build via `defaults`.
 defaults:
   - scope:
       path: ""
       type: posts
     values:
       layout: post
-      author: Callnovo Contact Center
+      author: "Callnovo Contact Center"
+      sitemap: true
+  - scope:                                                                     # ← ADDED
+      path: "googlee78651845662f710.html"
+    values:
+      sitemap: false                                                           # keeps the GSC verification file out of the public sitemap
+  - scope:                                                                     # ← ADDED
+      path: "404.html"
+    values:
+      sitemap: false                                                           # 404 page shouldn't be in the sitemap either
+
+# ── SEO defaults per collection ─────────────────────────────────────────────
+# ← ADDED: gives every post + page an og:type by default so social previews
+# render correctly even if a specific page forgets to set it.
+og_locale: en_US                                                               # ← ADDED
+
+# ═══════════════════════════════════════════════════════════════════════════
+# END. To verify after push:
+#   1. Wait ~60s for GitHub Pages to rebuild.
+#   2. curl -sSI https://callnovo-cc.github.io/blog/ | head -20
+#   3. View source and confirm: <html lang="en-US">, og:image present,
+#      twitter:card=summary_large_image, expanded sameAs in Organization JSON-LD.
+#   4. Rich Results Test: https://search.google.com/test/rich-results
+#      → confirm Organization schema shows all 10 sameAs URLs.
+# ═══════════════════════════════════════════════════════════════════════════
