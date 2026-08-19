@@ -7,7 +7,7 @@ redirect_from:
   - /blog/2026/08/17/contact-center-pricing-models-2026/
 ---
 
-![Business leader comparing contact center pricing models on a laptop.]({{ '/assets/images/hero-pricing-models-2026.webp' | relative_url }})
+![Business leader comparing contact center pricing models on a laptop.]({{ '/assets/images/article-02-hero-pricing-models-2026.webp' | relative_url }})
 
 ***Evaluating per-seat, per-resolution, and hourly pricing models for outsourced support.***
 

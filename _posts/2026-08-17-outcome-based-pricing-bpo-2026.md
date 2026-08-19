@@ -63,7 +63,7 @@ Everest Group's outcome-metrics research makes a similar point from the buyer si
 
 A buyer who treats any single quoted cost-per-resolution figure as a universal benchmark is missing this risk entirely and is likely to be surprised by disputes over reopened cases, partial resolutions, or excluded issue types later in the contract term.
 
-![Chart comparing per-FTE attendance coverage against per-resolution pricing tiers, with figures added as a text overlay.]({{ '/assets/images/article-03-outcome-vs-fte-heroarticle-03-fte-vs-resolution-chart.webp' | relative_url }})
+![Chart comparing per-FTE attendance coverage against per-resolution pricing tiers, with figures added as a text overlay.]({{ '/assets/images/article-03-fte-vs-resolution-chart.webp' | relative_url }})
 
 **How to Evaluate a Vendor's Outcome-Pricing Offer**
 
