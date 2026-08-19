@@ -97,9 +97,12 @@ layout: default
         <p>Find articles organized by the subjects that matter: pricing, BPO, AI-powered CX, customer support, and contact center operations.</p>
       </article>
 
-      {% assign recent_ai_posts = site.categories.ai | slice: 0, 1 %}
-      {% if recent_ai_posts.size > 0 %}
-        {% assign recent_ai_post = recent_ai_posts.first %}
+      {%- comment -%}
+        Use `.first` filter (safe on Jekyll arrays) instead of `slice: 0, 1` which
+        is unreliable on hash-of-arrays and throws build warnings.
+      {%- endcomment -%}
+      {% assign recent_ai_post = site.categories.ai | first %}
+      {% if recent_ai_post %}
         <article class="topic-section-card">
           <p class="featured-label">Latest in AI</p>
           <h2><a href="{{ recent_ai_post.url | relative_url }}">{{ recent_ai_post.title }}</a></h2>
@@ -109,9 +112,8 @@ layout: default
         </article>
       {% endif %}
 
-      {% assign recent_bpo_posts = site.categories.bpo | slice: 0, 1 %}
-      {% if recent_bpo_posts.size > 0 %}
-        {% assign recent_bpo_post = recent_bpo_posts.first %}
+      {% assign recent_bpo_post = site.categories.bpo | first %}
+      {% if recent_bpo_post %}
         <article class="topic-section-card">
           <p class="featured-label">Latest in BPO</p>
           <h2><a href="{{ recent_bpo_post.url | relative_url }}">{{ recent_bpo_post.title }}</a></h2>
