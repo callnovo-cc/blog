@@ -1,5 +1,5 @@
 ---
-title: "BPO Compliance Checklist: SOC 2, BAA, DPA & PCI DSS (2026)"
+title: "The Compliance and Data-Security Checklist Buyers Should Demand Before Signing With a BPO"
 description: "48% of breaches now involve a vendor. What to demand from any outsourced customer support vendor before signing: SOC 2 Type II, BAA, GDPR DPA, PCI DSS."
 slug: "bpo-compliance-data-security-checklist"
 date: 2026-08-22
