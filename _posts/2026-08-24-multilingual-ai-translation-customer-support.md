@@ -160,10 +160,6 @@ Low-resource language pairs (falling to 55-70% AI accuracy) and any high-stakes 
 
 Vince Lupe is the founder of Callnovo Contact Center, a global BPO providing multilingual customer support across 65+ languages.
 
-## Disclosure
-
-This article was drafted with AI assistance and reviewed by Callnovo Contact Center staff before publication. All statistics cited are drawn from the named third-party sources linked above; no Callnovo-specific performance figures are asserted in this article.
-
 ## References
 
 Callnovo. (n.d.-a). *Multilingual customer service that drives global growth*. [https://callnovo.ai/multilingual-support/](https://callnovo.ai/multilingual-support/)
