@@ -155,10 +155,6 @@ Yes, and the reverse matters more for you: a vendor's general PCI DSS call cente
 **How old can a SOC 2 report be before it is a red flag?**
 Most guidance treats a report older than twelve months, with no renewal timeline offered, as a legitimate concern worth raising directly with the vendor ([Matproof, 2026](https://matproof.com/blog/soc-2-compliance-checklist-2026)).
 
-## Disclosure
-
-This article was drafted with AI assistance and reviewed for factual accuracy before publication. It is provided for informational purposes and does not constitute legal or compliance advice; consult qualified counsel for guidance specific to your organization.
-
 ## References
 
 Atlas Systems. (2026). SOC 2 vendor management: Complete compliance guide 2026. [https://www.atlassystems.com/blog/soc-2-vendor-management](https://www.atlassystems.com/blog/soc-2-vendor-management)
