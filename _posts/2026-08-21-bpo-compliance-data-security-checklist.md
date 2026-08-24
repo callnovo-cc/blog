@@ -185,4 +185,4 @@ Preferred Data. (2026). DBIR 2026: 48% breaches now third-party. [https://www.pr
 
 SOC2Auditors.org. (2026). 7 PCI DSS service providers for SOC 2 companies. [https://soc2auditors.org/insights/pci-dss-service-providers/](https://soc2auditors.org/insights/pci-dss-service-providers/)
 
-Verizon. (2026). 2026 Data Breach Investigations Report.
+Verizon. (2026). 2026 Data Breach Investigations Report. [https://www.verizon.com/business/resources/reports/dbir/]
