@@ -233,7 +233,7 @@ Weight the domains that carry the most risk for your business. A regulated opera
 | Commercial accountability | 24. What insurance coverage applies to this engagement? | Current certificate and applicability discussion |
 | Commercial accountability | 25. What is the plan if we need to change, scale, or exit? | Transition, continuity, and offboarding plan |
 
-![A one-to-five scoring framework for comparing evidence from customer support outsourcing providers.](/assets/images/score-evidence-not-claims-bpo-evaluation.webp){: loading="lazy" width="1200" height="675"}
+![A one-to-five scoring framework for comparing evidence from customer support outsourcing providers.](https://callnovo-cc/blog/assets/images/score-evidence-not-claims-bpo-evaluation.webp){: loading="lazy" width="1200" height="675"}
 
 *Score the proof attached to each answer, not the confidence of the presentation.*
 
