@@ -185,7 +185,7 @@ This is also where integration matters. A provider should be able to explain how
 
 Callnovo’s published positioning is deliberately hybrid: people and AI working together, with automation focused on routine work and people retaining judgment, empathy, and ownership of complex interactions ([Callnovo, n.d.-a](https://callnovo.ai/about/)). Whether you choose Callnovo or another provider, that boundary should be explicit. Do not accept “AI-powered” as a substitute for a documented workflow.
 
-![Five domains for evaluating a customer service outsourcing provider: operational fit, quality, security, AI maturity, and commercial accountability.](callnovo-cc/blog/assets/images/five-domains-outsourcing-provider-evaluation.webp){: loading="lazy" width="1200" height="675"}
+![Five domains for evaluating a customer service outsourcing provider: operational fit, quality, security, AI maturity, and commercial accountability.](https://callnovo-cc/blog/assets/images/five-domains-outsourcing-provider-evaluation.webp){: loading="lazy" width="1200" height="675"}
 
 *The evaluation has to connect delivery, governance, risk, technology, and commercial accountability.*
 
