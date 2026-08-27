@@ -185,7 +185,7 @@ This is also where integration matters. A provider should be able to explain how
 
 Callnovo’s published positioning is deliberately hybrid: people and AI working together, with automation focused on routine work and people retaining judgment, empathy, and ownership of complex interactions ([Callnovo, n.d.-a](https://callnovo.ai/about/)). Whether you choose Callnovo or another provider, that boundary should be explicit. Do not accept “AI-powered” as a substitute for a documented workflow.
 
-![Five domains for evaluating a customer service outsourcing provider: operational fit, quality, security, AI maturity, and commercial accountability.](assets/images/five-domains-outsourcing-provider-evaluation.webp){: loading="lazy" width="1200" height="675"}
+![Five domains for evaluating a customer service outsourcing provider: operational fit, quality, security, AI maturity, and commercial accountability.]({{ "assets/images/five-domains-outsourcing-provider-evaluation.webp" | relative_url }}){: loading="lazy" width="1200" height="675"}
 
 *The evaluation has to connect delivery, governance, risk, technology, and commercial accountability.*
 
@@ -233,7 +233,7 @@ Weight the domains that carry the most risk for your business. A regulated opera
 | Commercial accountability | 24. What insurance coverage applies to this engagement? | Current certificate and applicability discussion |
 | Commercial accountability | 25. What is the plan if we need to change, scale, or exit? | Transition, continuity, and offboarding plan |
 
-![A one-to-five scoring framework for comparing evidence from customer support outsourcing providers.](assets/images/score-evidence-not-claims-bpo-evaluation.webp){: loading="lazy" width="1200" height="675"}
+![A one-to-five scoring framework for comparing evidence from customer support outsourcing providers.]({{ "assets/images/score-evidence-not-claims-bpo-evaluation.webp" | relative_url }}){: loading="lazy" width="1200" height="675"}
 
 *Score the proof attached to each answer, not the confidence of the presentation.*
 
