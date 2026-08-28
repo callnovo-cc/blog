@@ -1,5 +1,5 @@
 ---
-title: "Customer Service Outsourcing Transition Plan"
+title: "Customer Service Outsourcing Transition Plan: How to Move Support Without Damaging CX"
 description: "A 7-step customer service outsourcing transition plan to protect CX, knowledge, SLAs, and trust when moving support to a BPO partner."
 slug: "customer-service-outsourcing-transition-plan"
 date: 2026-08-28
