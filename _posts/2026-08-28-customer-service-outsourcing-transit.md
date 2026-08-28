@@ -242,14 +242,6 @@ Compare post-go-live performance against a pre-transition baseline using shared 
 
 AI is best suited to straightforward, low-risk requests such as triage, summarization, or routing. Complex, sensitive, or exception-based cases should route to a human agent with full conversation context preserved, not restarted ([Maven AGI, 2026](https://www.mavenagi.com/blog/customer-service-trends-enterprise-cx-teams); [Parloa, 2026](https://www.parloa.com/blog/accelerate-cx/); [CMSWire, 2026](https://www.cmswire.com/customer-experience/2026-checkpoint-3-bold-customer-service-moves-you-must-make-now/)).
 
-## About the Author
-
-Élise Moreau contributes marketing strategy and operational content for Callnovo Contact Center, with a focus on customer-support operations, outsourcing transitions, and practical decision frameworks for scaling teams.
-
-## Disclosure
-
-This article is informational and was prepared for Callnovo Contact Center. It is not legal, compliance, procurement, or financial advice. Transition requirements should be validated against each organization’s systems, customer commitments, security controls, and applicable regulations.
-
 ## References
 
 CMSWire. (2026). [2026 checkpoint: 3 bold customer service moves you must make now](https://www.cmswire.com/customer-experience/2026-checkpoint-3-bold-customer-service-moves-you-must-make-now/).
