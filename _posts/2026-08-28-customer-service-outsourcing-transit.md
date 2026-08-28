@@ -110,7 +110,7 @@ disclaimer: "informational"
 }
 </script>
 
-![Customer-support leaders reviewing a phased outsourcing transition plan.]({{ '/assets/images/customer-service-outsourcing-transition-plan-hero.webp' | relative_url }}{: .article-hero loading="eager" fetchpriority="high" width="1200" height="630"}
+![Customer-support leaders reviewing a phased outsourcing transition plan.]({{ '/assets/images/customer-service-outsourcing-transition-plan-hero.webp' | relative_url }}){: .article-hero loading="eager" fetchpriority="high" width="1200" height="630"}
 
 *Controlled handoff, shared metrics, and clear escalation rules reduce transition risk.*
 {: .article-hero-caption }
@@ -141,7 +141,7 @@ Before any customer contact moves to a new team, document what “good” curren
 | Escalation rate | Shows where knowledge or decision authority is currently missing |
 | Channel and language mix | Determines staffing, routing, and training requirements for the pilot scope |
 
-![Illustration of support metrics to measure before an outsourcing transition.]{{ '/assets/images/customer-service-outsourcing-transition-baseline.webp' | relative_url }}{: loading="lazy" width="1200" height="1200"}
+![A customer-support transition baseline showing current queues, systems, workflows, and service-level targets.]({{ '/assets/images/customer-service-outsourcing-transition-baseline.webp' | relative_url }}){: .article-illustration loading="lazy" width="1200" height="675"}
 
 *Baseline the operation before transferring it.*
 
@@ -166,7 +166,7 @@ Include the following in the package:
 - Contact directory and escalation matrix
 - A living “known edge cases” register
 
-![Diagram showing documented knowledge transfer from internal experts to a support team.]{{ '/assets/images/bpo-knowledge-transfer-package.webp' | relative_url }}{: loading="lazy" width="1200" height="630"}
+![A structured BPO knowledge-transfer package connecting documentation, systems access, workflows, and support teams.]({{ '/assets/images/bpo-knowledge-transfer-package.webp' | relative_url }}){: .article-illustration loading="lazy" width="1200" height="675"}
 
 *Document the work before you transfer the work.*
 
@@ -181,7 +181,7 @@ Step 4 addresses systems and permissions before go-live, not during it: which sy
 - Every AI-to-human handoff should preserve conversation history rather than restart it
 - Escalation paths and decision logs should be auditable, not opaque
 
-![Illustration of AI-assisted routing and human escalation in customer support.]{{ '/assets/images/ai-human-escalation-boundaries.webp' | relative_url }}{: loading="lazy" width="1200" height="630"}
+![AI automation and human support escalation boundaries working together in a customer-service operation.]({{ '/assets/images/ai-human-escalation-boundaries.webp' | relative_url }}){: .article-illustration loading="lazy" width="1200" height="675"}
 
 *Automation should speed routine work while preserving human judgment for exceptions.*
 
