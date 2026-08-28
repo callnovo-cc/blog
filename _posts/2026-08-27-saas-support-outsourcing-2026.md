@@ -1,5 +1,5 @@
 ---
-title: "SaaS Customer Support Outsourcing in 2026"
+title: "SaaS Customer Support Outsourcing in 2026: When to Outsource, What to Keep In-House"
 description: "When should a SaaS company outsource customer support? A 2026 tiering framework, cost data, and a hybrid AI/human model for technical products."
 slug: "saas-support-outsourcing-2026"
 date: 2026-08-27
