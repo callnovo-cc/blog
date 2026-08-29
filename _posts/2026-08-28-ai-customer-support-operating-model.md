@@ -1,5 +1,5 @@
 ---
-title: "AI Customer Support Operating Model: Automate vs Escalate"
+title: "AI Customer Support Operating Model: What to Automate, What to Escalate, and How to Govern the Handoff"
 description: "Build an AI customer support operating model that automates routine requests, escalates risk, and preserves context in every human handoff."
 slug: "ai-customer-support-operating-model"
 date: 2026-08-28
@@ -32,7 +32,7 @@ disclaimer: "informational"
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "AI Customer Support Operating Model: Automate vs Escalate",
+  "headline": "AI Customer Support Operating Model: What to Automate, What to Escalate, and How to Govern the Handoff",
   "description": "Build an AI customer support operating model that automates routine requests, escalates risk, and preserves context in every human handoff.",
   "image": "https://callnovo-cc.github.io/assets/images/hero-ai-customer-support-operating-model.webp",
   "datePublished": "2026-08-28",
