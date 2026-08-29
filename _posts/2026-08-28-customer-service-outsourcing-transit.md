@@ -9,7 +9,7 @@ tags: [customer-service-outsourcing, bpo-transition, support-operations, knowled
 author:
   name: "Élise Moreau"
   role: "Marketing Strategy, Callnovo Contact Center"
-image: /assets/images/customer-service-outsourcing-transition-plan-hero.jpg
+image: /assets/images/customer-service-outsourcing-transition-plan-hero.webp
 image_alt: "Customer-support leaders reviewing a phased outsourcing transition plan."
 image_caption: "Controlled handoff, shared metrics, and clear escalation rules reduce transition risk."
 image_credit: "Illustration: Callnovo"
@@ -34,7 +34,7 @@ disclaimer: "informational"
   "@type": "Article",
   "headline": "Customer Service Outsourcing Transition Plan",
   "description": "A 7-step customer service outsourcing transition plan to protect CX, knowledge, SLAs, and trust when moving support to a BPO partner.",
-  "image": "https://callnovo-cc.github.io/assets/images/customer-service-outsourcing-transition-plan-hero.jpg",
+  "image": "https://callnovo-cc.github.io/assets/images/customer-service-outsourcing-transition-plan-hero.webp",
   "datePublished": "2026-08-28",
   "dateModified": "2026-08-28",
   "mainEntityOfPage": {
