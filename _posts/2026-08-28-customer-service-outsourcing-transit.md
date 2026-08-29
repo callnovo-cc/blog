@@ -110,7 +110,7 @@ disclaimer: "informational"
 }
 </script>
 
-![Customer-support leaders reviewing a phased outsourcing transition plan.]({{ '/assets/images/customer-service-outsourcing-transition-plan-hero.webp' | relative_url }}){: .article-hero loading="eager" fetchpriority="high" width="1200" height="630"}
+![Customer-support leaders reviewing a phased outsourcing transition plan.]({{ page.image | relative_url }}){: .article-hero loading="eager" fetchpriority="high" width="1200" height="630"}
 
 *Controlled handoff, shared metrics, and clear escalation rules reduce transition risk.*
 {: .article-hero-caption }
