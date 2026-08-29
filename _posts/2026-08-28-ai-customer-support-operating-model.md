@@ -258,14 +258,6 @@ Log the customer request, model answer or action, source or tool used, confidenc
 
 Track resolution rate, escalation rate, CSAT, repeat-contact rate, and QA findings separately for AI-handled, AI-assisted, and human-only paths. The goal is not maximum automation. It is accurate routing, completed resolution, visible oversight, and a customer experience that holds up when the case becomes difficult.
 
-## About the Author
-
-Vince Lupe is a Marketing Specialist at Callnovo Contact Center, focused on content systems, market development, and customer-experience operations.
-
-## Disclosure
-
-This article is informational and reflects Callnovo Contact Center’s approved operating-model perspective. It is not legal, regulatory, privacy, or compliance advice. Apply the framework to your organization’s systems, customer commitments, jurisdictional requirements, and risk profile with appropriate qualified review.
-
 ## References
 
 - [Atlan. (2026). *AI agents for customer support: Why most fail in 2026.*](https://atlan.com/know/ai-agents-for-customer-support/)
