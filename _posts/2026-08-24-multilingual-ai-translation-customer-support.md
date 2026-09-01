@@ -8,7 +8,7 @@ categories: [insights]
 tags: [multilingual-support, ai-translation, customer-service, localization]
 author:
   name: "Vince Lupe"
-  role: "Founder, Callnovo Contact Center"
+  role: "Marketing Specialist, Callnovo Contact Center"
   url: "https://www.linkedin.com/in/vince-lupe/"
   same_as:
     - "https://www.linkedin.com/in/vince-lupe/"
