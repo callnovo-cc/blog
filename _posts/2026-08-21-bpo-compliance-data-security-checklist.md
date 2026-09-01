@@ -78,9 +78,6 @@ The third-party vendor data breach statistics explain the urgency better than an
 
 ![Statistical infographic showing 48 percent of 2026 data breaches involved a third-party vendor, up from 30 percent the prior year](https://raw.githubusercontent.com/callnovo-cc/blog/main/assets/images/pin-bpo-compliance-checklist.webp){: loading="lazy" width="400" height="716" style="display:block;margin:0 auto;max-width:100%;height:auto;"}
 
-*Source: Verizon 2026 Data Breach Investigations Report.*
-{: .figure-caption }
-
 ## What Does SOC 2 Type II Actually Prove, and Why Does the Report Matter More Than the Badge?
 
 Evaluating a SOC 2 Type II BPO vendor starts with understanding what the report actually is. SOC 2 is not a single pass/fail certification, it is an auditor's report on whether a company's internal controls actually operate the way it claims, across security, availability, processing integrity, confidentiality, and privacy ([BPO Insight Hub, 2026](https://www.bpoinsighthub.com/blog/bpo-security-certifications-explained-soc-2-hipaa-iso-27001-pci-dss-in-2026){:rel="noopener"}). The distinction that matters most to a buyer is Type I versus Type II. A Type I report confirms that controls were designed correctly at a single point in time. A Type II report confirms those controls actually operated effectively over a review period, typically six to twelve months ([Matproof, 2026](https://matproof.com/blog/soc-2-compliance-checklist-2026){:rel="noopener"}). A SOC 2 Type II BPO vendor waving a badge without offering the underlying report, and a recent one, is not offering proof, just a claim.
