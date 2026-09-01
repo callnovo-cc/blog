@@ -1,74 +1,94 @@
 ---
 layout: default
-title: Categories
+title: "Customer Support, BPO, and AI CX Insights | Callnovo"
+description: "Browse practical Callnovo insights on customer service outsourcing, BPO pricing, AI-powered customer support, multilingual CX, compliance, ecommerce support, and contact center operations."
 permalink: /categories/
-description: Browse Callnovo blog articles by topic — BPO, customer support, AI-powered CX, pricing models, and contact center operations.
 ---
 
-<section class="category-page">
-  <div class="site-shell site-shell-narrow">
-    <p class="eyebrow">Topics</p>
-    <h1>Browse by category</h1>
-    <p class="home-intro">Explore articles by topic across BPO, customer support, AI-powered CX, pricing models, and contact center operations.</p>
-
-    <div class="topic-strip-inner">
-      {%- assign sorted_categories = site.categories | sort -%}
-      {%- for category in sorted_categories -%}
-        {%- assign category_name = category[0] -%}
-        {%- assign posts_in_category = category[1] -%}
-        <a class="topic-chip" href="#{{ category_name | slugify }}">
-          {{ category_name }} ({{ posts_in_category | size }})
-        </a>
-      {%- endfor -%}
-    </div>
-  </div>
+<section class="archive-hero">
+  <p class="eyebrow">Callnovo Insights</p>
+  <h1>Customer Support, BPO, and AI CX Insights</h1>
+  <p>Practical analysis for teams evaluating customer service outsourcing, AI-powered support, multilingual operations, BPO pricing, compliance, and contact-center delivery. Browse by the decision you are working through, then move into the articles most relevant to that question.</p>
 </section>
 
-<section class="post-feed">
-  <div class="site-shell site-shell-narrow">
-    {%- assign sorted_categories = site.categories | sort -%}
-    {%- for category in sorted_categories -%}
-      {%- assign category_name = category[0] -%}
-      {%- assign posts_in_category = category[1] -%}
+<section class="topic-hub" aria-labelledby="start-here">
+  <h2 id="start-here">Start with your decision</h2>
+  <ul>
+    <li><a href="#customer-service-outsourcing">Evaluate a customer service outsourcing partner</a></li>
+    <li><a href="#ai-powered-customer-support">Design AI automation and human escalation</a></li>
+    <li><a href="#bpo-pricing-and-commercial-models">Compare BPO pricing and commercial models</a></li>
+    <li><a href="#multilingual-customer-support">Plan multilingual customer support</a></li>
+    <li><a href="#compliance-security-and-governance">Assess compliance, security, and AI governance controls</a></li>
+  </ul>
+</section>
 
-      <section class="category-block" id="{{ category_name | slugify }}">
-        <div class="category-block-header">
-          <h2>{{ category_name | capitalize }}</h2>
-          <p class="post-meta">{{ posts_in_category | size }} article{% if posts_in_category.size != 1 %}s{% endif %}</p>
-        </div>
+<section class="topic-hub" id="ai-powered-customer-support">
+  <h2>AI-Powered Customer Support</h2>
+  <p>How to decide what AI should automate, when it should escalate, and how to govern the handoff between automated systems and human agents. These articles focus on operating design, quality controls, and practical buyer diligence rather than automation claims alone.</p>
+  <ul>
+    <li><a href="{{ '/2026/08/31/ai-customer-support-outsourcing-governance/' | relative_url }}">AI Customer Support Outsourcing: the enterprise governance framework for automation, escalation, and multilingual service</a></li>
+    <li><a href="{{ '/2026/08/28/ai-customer-support-operating-model/' | relative_url }}">AI Customer Support Operating Model: what to automate, what to escalate, and how to govern the handoff</a></li>
+    <li><a href="{{ '/2026/08/17/ai-human-hybrid-customer-support/' | relative_url }}">AI Human Hybrid Customer Support: where automation stops and human judgment starts</a></li>
+    <li><a href="{{ '/2026/08/25/ai-receptionist-missed-call-cost/' | relative_url }}">The Cost of Missed Calls Small Business Owners Face</a></li>
+  </ul>
+</section>
 
-        {%- for post in posts_in_category -%}
-          <article class="post-card">
-            {%- if post.image -%}
-              <a class="post-card-image" href="{{ post.url | relative_url }}">
-                <img src="{{ post.image | relative_url }}" alt="{{ post.image_alt | default: post.title }}" loading="lazy" decoding="async">
-              </a>
-            {%- endif -%}
+<section class="topic-hub" id="customer-service-outsourcing">
+  <h2>Customer Service Outsourcing</h2>
+  <p>Guidance for selecting, transitioning to, and governing an outsourced support partner. Start here when you need to compare operating models, define what stays in-house, or move customer contacts without damaging the experience.</p>
+  <ul>
+    <li><a href="{{ '/2026/08/26/customer-service-outsourcing-checklist/' | relative_url }}">Customer Service Outsourcing Checklist: 25 questions to ask before choosing a provider</a></li>
+    <li><a href="{{ '/2026/08/28/customer-service-outsourcing-transition-plan/' | relative_url }}">Customer Service Outsourcing Transition Plan: how to move support without damaging CX</a></li>
+    <li><a href="{{ '/2026/08/27/saas-support-outsourcing-2026/' | relative_url }}">SaaS Customer Support Outsourcing in 2026: when to outsource and what to keep in-house</a></li>
+  </ul>
+</section>
 
-            <p class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</p>
+<section class="topic-hub" id="bpo-pricing-and-commercial-models">
+  <h2>BPO Pricing and Commercial Models</h2>
+  <p>Understand what a contact-center proposal actually covers, how pricing models allocate risk, and when per-FTE, per-transaction, or outcome-based arrangements fit the work you need done.</p>
+  <ul>
+    <li><a href="{{ '/2026/08/17/contact-center-pricing-models-2026/' | relative_url }}">Contact Center Pricing Models 2026: what you are actually paying for</a></li>
+    <li><a href="{{ '/2026/08/17/outcome-based-pricing-bpo-2026/' | relative_url }}">Outcome-Based Pricing vs. Per-FTE: when paying for resolution actually works</a></li>
+  </ul>
+</section>
 
-            {%- if post.categories -%}
-              <div class="tag-row tag-row-compact">
-                {%- for post_category in post.categories limit:3 -%}
-                  <a class="tag" href="#{{ post_category | slugify }}">{{ post_category }}</a>
-                {%- endfor -%}
-              </div>
-            {%- endif -%}
+<section class="topic-hub" id="compliance-security-and-governance">
+  <h2>Compliance, Security, and Governance</h2>
+  <p>Buyer-side diligence for support operations that touch customer data, regulated processes, or AI-driven decisions. Use these resources to clarify required evidence, ownership, access, and operational controls before signing.</p>
+  <ul>
+    <li><a href="{{ '/2026/08/21/bpo-compliance-data-security-checklist/' | relative_url }}">The Compliance and Data-Security Checklist Buyers Should Demand Before Signing With a BPO</a></li>
+    <li><a href="{{ '/2026/08/31/ai-customer-support-outsourcing-governance/' | relative_url }}">AI customer support governance framework for outsourced service operations</a></li>
+  </ul>
+</section>
 
-            <h3 class="post-card-title">
-              <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-            </h3>
+<section class="topic-hub" id="multilingual-customer-support">
+  <h2>Multilingual Customer Support</h2>
+  <p>Multilingual service is an operating-quality question, not merely a language-count claim. Explore the role of native-language knowledge, cultural context, routing, QA calibration, and human coverage for complex cases.</p>
+  <ul>
+    <li><a href="{{ '/2026/08/24/multilingual-ai-translation-customer-support/' | relative_url }}">Why AI Translation Alone Cannot Deliver Real Multilingual Customer Support</a></li>
+    <li><a href="{{ '/2026/08/31/ai-customer-support-outsourcing-governance/' | relative_url }}">How to govern multilingual quality in AI customer support outsourcing</a></li>
+  </ul>
+</section>
 
-            {%- if post.description -%}
-              <p class="post-card-description">{{ post.description }}</p>
-            {%- endif -%}
+<section class="topic-hub" id="ecommerce-and-amazon-customer-support">
+  <h2>Ecommerce and Amazon Customer Support</h2>
+  <p>Support performance can affect seller feedback, reviews, buyer trust, and marketplace outcomes. These resources examine where ecommerce support breaks and what an operating model needs to protect the customer experience.</p>
+  <ul>
+    <li><a href="{{ '/2026/08/25/amazon-seller-support-pattern/' | relative_url }}">Amazon Seller Customer Support Outsourcing: what sellers get wrong until it costs them Buy Box or reviews</a></li>
+  </ul>
+</section>
 
-            <p class="post-card-link">
-              <a href="{{ post.url | relative_url }}">Read article</a>
-            </p>
-          </article>
-        {%- endfor -%}
-      </section>
-    {%- endfor -%}
-  </div>
+<section class="topic-hub" id="contact-center-operations">
+  <h2>Contact Center Operations</h2>
+  <p>Implementation, escalation, handoffs, QA, staffing, and continuity are where a support strategy becomes a working operation. These articles cover the operational details that determine whether the model holds up in production.</p>
+  <ul>
+    <li><a href="{{ '/2026/08/28/customer-service-outsourcing-transition-plan/' | relative_url }}">How to transition outsourced customer service without damaging CX</a></li>
+    <li><a href="{{ '/2026/08/28/ai-customer-support-operating-model/' | relative_url }}">Operating model for AI-to-human customer-support handoffs</a></li>
+    <li><a href="{{ '/2026/08/17/ai-human-hybrid-customer-support/' | relative_url }}">Building an AI-human hybrid customer-support model</a></li>
+  </ul>
+</section>
+
+<section class="topic-hub">
+  <h2>Browse every article</h2>
+  <p>For the complete archive, including articles that span more than one operating topic, visit the <a href="{{ '/' | relative_url }}">Callnovo Contact Center Blog homepage</a>.</p>
 </section>
