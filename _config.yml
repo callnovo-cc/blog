@@ -1,0 +1,201 @@
+# =============================================================================
+# Callnovo Contact Center Blog — _config.yml
+# Canonical Jekyll configuration for https://callnovo-cc.github.io/blog
+#
+# Version: 2.0
+# Last reviewed: 2026-09-01
+#
+# Scope:
+# - Establishes site, publisher, author, social, discovery, and build defaults.
+# - Keeps the publisher as Callnovo Contact Center and the default article author
+#   as Vince Lupe.
+# - Individual post front matter may override author values only when an
+#   explicitly approved author exception exists.
+#
+# Important:
+# jekyll-seo-tag historically derives BlogPosting publisher.name from the page
+# author in some configurations. This file therefore supplies consistent author
+# data and a clear organization entity, but it does not replace a required
+# custom SEO include if the plugin continues to emit a conflicting publisher
+# value. The manual Article JSON-LD in each post remains authoritative for the
+# article-specific publisher object until that include is overridden.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Site identity
+# -----------------------------------------------------------------------------
+title: "Callnovo Contact Center Blog"
+tagline: "Customer support operations, AI-enabled CX, and global BPO insight"
+description: "Insights on outsourced customer support, BPO, AI-powered CX, and global contact center operations."
+url: "https://callnovo-cc.github.io"
+baseurl: "/blog"
+lang: "en-US"
+locale: "en_US"
+timezone: "America/La_Paz"
+
+# -----------------------------------------------------------------------------
+# Publisher organization
+# Used as the durable commercial/publisher identity. Keep this organization
+# block separate from `author`, which identifies the default human author.
+# -----------------------------------------------------------------------------
+organization:
+  name: "Callnovo Contact Center"
+  alternate_name: "Callnovo"
+  url: "https://callnovo.ai/"
+  logo: "https://callnovo.ai/logos/callnovo-logo.webp"
+  image: "https://callnovo.ai/og-default.png"
+
+# -----------------------------------------------------------------------------
+# Default human author
+# Article front matter should inherit or match these values unless a documented,
+# approved byline exception exists.
+# -----------------------------------------------------------------------------
+author:
+  name: "Vince Lupe"
+  url: "https://www.linkedin.com/in/vince-lupe/"
+  job_title: "Marketing Specialist"
+  works_for: "Callnovo Contact Center"
+
+# -----------------------------------------------------------------------------
+# Social identity / Organization sameAs
+# -----------------------------------------------------------------------------
+social:
+  name: "Callnovo Contact Center"
+  links:
+    - "https://callnovo.ai/"
+    - "https://callnovo.com/"
+    - "https://callnovo-cc.blogspot.com/"
+    - "https://www.linkedin.com/company/callnovo-ai/"
+    - "https://www.facebook.com/callnovosudamerica/"
+    - "https://www.instagram.com/callnovo_bpo/"
+    - "https://www.instagram.com/callnovo.bo/"
+    - "https://x.com/callnovocc"
+    - "https://www.threads.net/@callnovo"
+    - "https://www.pinterest.com/callnovo_cc/"
+
+# Site-wide logo and default social share image used by jekyll-seo-tag.
+logo: "https://callnovo.ai/logos/callnovo-logo.webp"
+image: "https://callnovo.ai/og-default.png"
+
+# -----------------------------------------------------------------------------
+# Social metadata
+# -----------------------------------------------------------------------------
+twitter:
+  username: "callnovocc"
+  card: "summary_large_image"
+
+facebook:
+  app_id: ""
+  publisher: "https://www.facebook.com/callnovosudamerica/"
+
+# -----------------------------------------------------------------------------
+# Build and Markdown
+# -----------------------------------------------------------------------------
+markdown: kramdown
+kramdown:
+  input: GFM
+  smart_quotes: [apos, apos, quot, quot]
+  hard_wrap: false
+  auto_ids: true
+  toc_levels: 2..4
+
+theme: null
+highlighter: rouge
+permalink: "/:year/:month/:day/:title/"
+
+sass:
+  style: compressed
+
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+
+# -----------------------------------------------------------------------------
+# GitHub Pages-compatible plugins
+# -----------------------------------------------------------------------------
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-redirect-from
+  - jekyll-paginate
+
+paginate: 10
+paginate_path: "/page:num/"
+
+feed:
+  path: "feed.xml"
+  posts_limit: 20
+
+# -----------------------------------------------------------------------------
+# Exclusions
+# -----------------------------------------------------------------------------
+exclude:
+  - "README.md"
+  - "Gemfile"
+  - "Gemfile.lock"
+  - "LICENSE"
+  - "node_modules"
+  - ".git"
+  - ".github"
+
+# -----------------------------------------------------------------------------
+# Front matter defaults
+# -----------------------------------------------------------------------------
+defaults:
+  # Posts: use a structured default author object rather than a bare company
+  # string. This gives jekyll-seo-tag a consistent Person identity and author
+  # URL even if a post omits its own author block.
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author:
+        name: "Vince Lupe"
+        url: "https://www.linkedin.com/in/vince-lupe/"
+        job_title: "Marketing Specialist"
+        works_for: "Callnovo Contact Center"
+      sitemap: true
+      image: "/assets/images/callnovo-insights-articles-banner.webp"
+      og_type: "article"
+
+  # Pages: retain a valid default OG image without imposing Article metadata.
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      image: "https://callnovo.ai/og-default.png"
+
+  # Sitemap exclusions.
+  - scope:
+      path: "googlee78651845662f710.html"
+    values:
+      sitemap: false
+
+  - scope:
+      path: "404.html"
+    values:
+      sitemap: false
+
+# -----------------------------------------------------------------------------
+# SEO defaults
+# -----------------------------------------------------------------------------
+og_locale: "en_US"
+
+# =============================================================================
+# Release verification after commit
+# 1. Wait for GitHub Pages to rebuild.
+# 2. Fetch a newly built article and inspect the JSON-LD generated by
+#    jekyll-seo-tag:
+#      - author.name = Vince Lupe
+#      - author.url = https://www.linkedin.com/in/vince-lupe/
+#      - site/logo/social metadata remain present
+# 3. Validate the manual Article JSON-LD retains:
+#      - publisher.name = Callnovo Contact Center
+#      - publisher.url = https://callnovo.ai/
+# 4. If the auto-generated BlogPosting schema still reports the author as the
+#    publisher, add a controlled _includes/seo.html override. Do not change
+#    individual article copy to compensate for a site-template problem.
+# =============================================================================
