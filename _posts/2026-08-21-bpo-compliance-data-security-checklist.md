@@ -8,7 +8,7 @@ categories: [insights]
 tags: [bpo-compliance, data-security, soc-2, gdpr, outsourcing]
 author:
   name: "Vince Lupe"
-  role: "Owner, Callnovo Contact Center"
+  role: "Marketing Specialist, Callnovo Contact Center"
   url: "https://www.linkedin.com/in/vince-lupe/"
   same_as:
     - "https://www.linkedin.com/in/vince-lupe/"
