@@ -5,12 +5,18 @@ layout: default
 <article class="article-wrap">
   <div class="site-shell site-shell-article">
     <header class="article-header">
-      <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}</p>
+      <p class="post-meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>
+        {% if page.last_modified_at and page.last_modified_at != page.date %}
+          <span aria-hidden="true"> · </span>
+          Updated <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">{{ page.last_modified_at | date: "%b %-d, %Y" }}</time>
+        {% endif %}
+      </p>
 
       {% if page.categories %}
-        <div class="tag-row tag-row-compact article-tags">
+        <div class="tag-row tag-row-compact article-tags" aria-label="Article topics">
           {% for category in page.categories %}
-            <a class="tag" href="{{ '/categories/' | relative_url }}#{{ category | slugify }}">{{ category }}</a>
+            <a class="tag" href="{{ '/categories/' | relative_url }}#topic-{{ category | slugify }}">{{ category }}</a>
           {% endfor %}
         </div>
       {% endif %}
@@ -41,7 +47,7 @@ layout: default
     <section class="publication-note">
       <div class="publication-note-box">
         <p class="cta-eyebrow">About this publication</p>
-        <p><strong>Callnovo Blog</strong> publishes practical analysis on outsourced customer support, AI-powered CX, multilingual operations, and contact center economics.</p>
+        <p><strong>Callnovo Blog</strong> publishes practical analysis on outsourced customer support, AI-powered CX, multilingual operations, and contact center economics. Read our <a href="{{ '/editorial-standards/' | relative_url }}">Editorial Standards</a> to understand how we research, review, and update articles.</p>
       </div>
     </section>
 
@@ -52,7 +58,7 @@ layout: default
       <div class="related-grid">
         {% for post in related_posts %}
           <article class="related-card">
-            <p class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</p>
+            <p class="post-meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time></p>
             <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
             {% if post.description %}
               <p>{{ post.description }}</p>
