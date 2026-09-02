@@ -4,13 +4,40 @@
   <meta name="p:domain_verify" content="25228e4ee50e368cae3d010979ec6261"/>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {%- assign meta_title = page.title | default: site.title -%}
+  {%- assign meta_description = page.description | default: site.description -%}
+  {%- assign meta_image = page.image | default: site.image -%}
 
-  {%- comment -%}
-    All meta / canonical / og / twitter / Organization JSON-LD are emitted by
-    jekyll-seo-tag from _config.yml — including sameAs, logo, image, twitter,
-    facebook, and Article schema for posts. We deliberately do NOT hand-roll
-    those tags here to avoid duplicate/competing schema signals.
-  {%- endcomment -%}
+  <title>{% if page.title %}{{ meta_title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{{ meta_description | escape }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+
+  <meta property="og:locale" content="{{ site.og_locale | default: 'en_US' }}">
+  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+  <meta property="og:title" content="{{ meta_title | escape }}">
+  <meta property="og:description" content="{{ meta_description | escape }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:site_name" content="{{ site.title | escape }}">
+  {% if meta_image %}<meta property="og:image" content="{{ meta_image | absolute_url }}">{% endif %}
+
+  <meta name="twitter:card" content="{{ site.twitter.card | default: 'summary_large_image' }}">
+  {% if site.twitter.username %}<meta name="twitter:site" content="@{{ site.twitter.username | remove: '@' }}">{% endif %}
+  {% if site.twitter.username %}<meta name="twitter:creator" content="@{{ site.twitter.username | remove: '@' }}">{% endif %}
+  <meta name="twitter:title" content="{{ meta_title | escape }}">
+  <meta name="twitter:description" content="{{ meta_description | escape }}">
+  {% if meta_image %}<meta name="twitter:image" content="{{ meta_image | absolute_url }}">{% endif %}
+
+  {% if page.layout == 'post' %}
+  <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+  <meta property="article:modified_time" content="{{ page.last_modified_at | default: page.date | date_to_xmlschema }}">
+  {% endif %}
+  
+{%- comment -%}
+  Core SEO metadata is emitted manually here so Callnovo retains precise
+  control over canonical URLs, Open Graph, Twitter Card tags, and the
+  organization publisher entity. Article, BreadcrumbList, and FAQPage
+  JSON-LD are emitted below only where their page-level conditions apply.
+{%- endcomment -%}
   {% feed_meta %}
 
   <!-- Favicons (kept manual — jekyll-seo-tag doesn't emit these) -->
