@@ -4,7 +4,7 @@ description: "Three real Amazon seller case studies reveal exactly where support
 slug: "amazon-seller-support-pattern"
 date: 2026-08-25
 last_modified_at: 2026-08-25
-categories: [case-studies]
+categories: [ecommerce, amazon, outsourcing, customer-support]
 tags: [amazon-seller-support, amazon-customer-service-outsourcing, ecommerce-support, amazon-fba]
 author:
   name: "Vince Lupe"
