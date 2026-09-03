@@ -4,7 +4,7 @@ description: "48% of breaches now involve a vendor. What to demand from any outs
 slug: "bpo-compliance-data-security-checklist"
 date: 2026-08-22
 last_modified_at: 2026-08-22
-categories: [insights]
+categories: [bpo, compliance, data-security, customer-support]
 tags: [bpo-compliance, data-security, soc-2, gdpr, outsourcing]
 author:
   name: "Vince Lupe"
