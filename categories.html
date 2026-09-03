@@ -45,7 +45,7 @@ permalink: /categories/
   <p>Guidance for selecting, transitioning to, and governing an outsourced support partner. Start here when you need to compare operating models, define what stays in-house, or move customer contacts without damaging the experience.</p>
   <ul class="topic-article-list">
     {% for post in all_posts %}
-      {% if post.categories contains 'outsourcing' or post.categories contains 'customer-support' %}
+      {% if post.categories contains 'outsourcing' or post.categories contains 'bpo' or post.categories contains 'vendor-evaluation' or post.categories contains 'saas' %}
         <li>
           <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
           {% if post.description %}<p>{{ post.description }}</p>{% endif %}
@@ -60,7 +60,7 @@ permalink: /categories/
   <p>Understand what a contact-center proposal actually covers, how pricing models allocate risk, and when per-FTE, per-transaction, or outcome-based arrangements fit the work you need done.</p>
   <ul class="topic-article-list">
     {% for post in all_posts %}
-      {% if post.categories contains 'pricing' or post.categories contains 'bpo' %}
+      {% if post.categories contains 'pricing' or post.categories contains 'outcome-based-pricing' %}
         <li>
           <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
           {% if post.description %}<p>{{ post.description }}</p>{% endif %}
@@ -75,7 +75,7 @@ permalink: /categories/
   <p>Buyer-side diligence for support operations that touch customer data, regulated processes, or AI-driven decisions. Use these resources to clarify required evidence, ownership, access, and operational controls before signing.</p>
   <ul class="topic-article-list">
     {% for post in all_posts %}
-      {% if post.categories contains 'compliance' or post.categories contains 'security' or post.categories contains 'governance' %}
+      {% if post.categories contains 'compliance' or post.categories contains 'data-security' %}
         <li>
           <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
           {% if post.description %}<p>{{ post.description }}</p>{% endif %}
@@ -90,7 +90,7 @@ permalink: /categories/
   <p>Multilingual service is an operating-quality question, not merely a language-count claim. Explore the role of native-language knowledge, cultural context, routing, QA calibration, and human coverage for complex cases.</p>
   <ul class="topic-article-list">
     {% for post in all_posts %}
-      {% if post.categories contains 'multilingual' or post.categories contains 'translation' %}
+      {% if post.categories contains 'multilingual' %}
         <li>
           <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
           {% if post.description %}<p>{{ post.description }}</p>{% endif %}
@@ -105,7 +105,7 @@ permalink: /categories/
   <p>Support performance can affect seller feedback, reviews, buyer trust, and marketplace outcomes. These resources examine where ecommerce support breaks and what an operating model needs to protect the customer experience.</p>
   <ul class="topic-article-list">
     {% for post in all_posts %}
-      {% if post.categories contains 'ecommerce' or post.categories contains 'amazon' or post.categories contains 'marketplace' %}
+      {% if post.categories contains 'ecommerce' or post.categories contains 'amazon' %}
         <li>
           <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
           {% if post.description %}<p>{{ post.description }}</p>{% endif %}
@@ -120,7 +120,7 @@ permalink: /categories/
   <p>Implementation, escalation, handoffs, QA, staffing, and continuity are where a support strategy becomes a working operation. These articles cover the operational details that determine whether the model holds up in production.</p>
   <ul class="topic-article-list">
     {% for post in all_posts %}
-      {% if post.categories contains 'contact-center' or post.categories contains 'operations' %}
+      {% if post.categories contains 'contact-center' or post.categories contains 'small-business' %}
         <li>
           <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
           {% if post.description %}<p>{{ post.description }}</p>{% endif %}
