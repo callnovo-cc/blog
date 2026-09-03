@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: 'en-US' }}">
 <head>
-  <meta name="p:domain_verify" content="25228e4ee50e368cae3d010979ec6261"/>
+  <meta name="p:domain_verify" content="25228e4ee50e368cae3d010979ec6261">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   {%- assign meta_title = page.title | default: site.title -%}
   {%- assign meta_description = page.description | default: site.description -%}
   {%- assign meta_image = page.image | default: site.image -%}
+  {%- assign canonical_url = page.url | absolute_url -%}
 
   <title>{% if page.title %}{{ meta_title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{{ meta_description | escape }}">
-  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <link rel="canonical" href="{{ canonical_url }}">
 
-  <meta property="og:locale" content="{{ site.og_locale | default: 'en_US' }}">
+  <meta property="og:locale" content="{{ site.locale | default: 'en_US' }}">
   <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
   <meta property="og:title" content="{{ meta_title | escape }}">
   <meta property="og:description" content="{{ meta_description | escape }}">
-  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:url" content="{{ canonical_url }}">
   <meta property="og:site_name" content="{{ site.title | escape }}">
   {% if meta_image %}
   <meta property="og:image" content="{{ meta_image | absolute_url }}">
@@ -39,129 +40,62 @@
   {% if page.layout == 'post' %}
   <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
   <meta property="article:modified_time" content="{{ page.last_modified_at | default: page.date | date_to_xmlschema }}">
-  <meta property="article:author" content="{{ page.author.url | default: 'https://callnovo.ai/' }}">
+  {% if page.author.url %}
+  <meta property="article:author" content="{{ page.author.url }}">
+  {% endif %}
   {% endif %}
 
   {% feed_meta %}
 
-  <!-- Favicons -->
   <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
   <link rel="icon" type="image/png" href="{{ '/favicon.png' | relative_url }}">
-
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 
-  {%- comment -%}
-    Organization and WebSite schema provide consistent site-level entity signals.
-    Article, BreadcrumbList, and FAQPage schema are emitted only on eligible pages.
-  {%- endcomment -%}
+  {% if page.layout == 'post' %}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@graph": [
-      {
+    "@type": "{{ page.article_type | default: 'Article' }}",
+    "headline": {{ page.title | jsonify }},
+    "description": {{ meta_description | jsonify }},
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ canonical_url }}"
+    }{% if page.image %},
+    "image": "{{ page.image | absolute_url }}"{% endif %}{% if page.based_on %},
+    "isBasedOn": "{{ page.based_on }}"{% endif %}{% if page.word_count %},
+    "wordCount": {{ page.word_count }}{% endif %},
+    "author": {% if page.author.name %}{
+      "@type": "Person",
+      "name": {{ page.author.name | jsonify }}{% if page.author.url %},
+      "url": {{ page.author.url | jsonify }}{% endif %}{% if page.author.job_title %},
+      "jobTitle": {{ page.author.job_title | jsonify }}{% endif %}{% if page.author.same_as %},
+      "sameAs": {{ page.author.same_as | jsonify }}{% endif %},
+      "worksFor": {
         "@type": "Organization",
-        "@id": "https://callnovo.ai/#organization",
-        "name": "Callnovo Contact Center",
-        "url": "https://callnovo.ai/",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://callnovo.ai/logos/callnovo-logo.webp"
-        },
-        "sameAs": [
-          "https://callnovo.ai/",
-          "https://callnovo.com/",
-          "https://callnovo-cc.blogspot.com/",
-          "https://www.linkedin.com/company/callnovo-ai/",
-          "https://www.facebook.com/callnovosudamerica/",
-          "https://www.instagram.com/callnovo_bpo/",
-          "https://www.instagram.com/callnovo.bo/",
-          "https://x.com/callnovocc",
-          "https://www.threads.net/@callnovo",
-          "https://www.pinterest.com/callnovo_cc/"
-        ]
-      },
-      {
-        "@type": "WebSite",
-        "@id": "{{ '/' | absolute_url }}#website",
-        "url": "{{ '/' | absolute_url }}",
-        "name": "{{ site.title | jsonify }}",
-        "description": {{ site.description | jsonify }},
-        "publisher": {
-          "@id": "https://callnovo.ai/#organization"
-        },
-        "inLanguage": "{{ site.lang | default: 'en-US' }}"
+        "@id": "https://callnovo.ai/#organization"
       }
-    ]
+    }{% else %}{
+      "@type": "Organization",
+      "@id": "https://callnovo.ai/#organization"
+    }{% endif %}{% if page.reviewed_by %},
+    "reviewedBy": {
+      "@type": "Person",
+      "name": {{ page.reviewed_by.name | jsonify }}{% if page.reviewed_by.url %},
+      "url": {{ page.reviewed_by.url | jsonify }}{% endif %}
+    }{% endif %},
+    "publisher": {
+      "@type": "Organization",
+      "@id": "https://callnovo.ai/#organization"
+    }
   }
   </script>
 
-  {%- comment -%}
-    Article JSON-LD — uses an array of complete property strings, joined once,
-    so optional front matter can never create invalid trailing commas.
-
-    Supported post front matter:
-      author: { name, url, job_title, same_as }
-      reviewed_by: { name, url }
-      last_modified_at, image, based_on, word_count, article_type
-  {%- endcomment -%}
-  {% if page.layout == 'post' %}
-  {%- assign ld_fields = "" | split: "," -%}
-
-  {%- capture f -%}"headline":{{ page.title | jsonify }}{%- endcapture -%}
-  {%- assign ld_fields = ld_fields | push: f -%}
-  {%- capture f -%}"description":{{ page.description | default: site.description | jsonify }}{%- endcapture -%}
-  {%- assign ld_fields = ld_fields | push: f -%}
-  {%- capture f -%}"datePublished":"{{ page.date | date_to_xmlschema }}"{%- endcapture -%}
-  {%- assign ld_fields = ld_fields | push: f -%}
-  {%- capture f -%}"dateModified":"{{ page.last_modified_at | default: page.date | date_to_xmlschema }}"{%- endcapture -%}
-  {%- assign ld_fields = ld_fields | push: f -%}
-  {%- capture f -%}"mainEntityOfPage":{"@type":"WebPage","@id":"{{ page.url | absolute_url }}"}{%- endcapture -%}
-  {%- assign ld_fields = ld_fields | push: f -%}
-
-  {%- if meta_image -%}
-    {%- capture f -%}"image":"{{ meta_image | absolute_url }}"{%- endcapture -%}
-    {%- assign ld_fields = ld_fields | push: f -%}
-  {%- endif -%}
-  {%- if page.based_on -%}
-    {%- capture f -%}"isBasedOn":"{{ page.based_on }}"{%- endcapture -%}
-    {%- assign ld_fields = ld_fields | push: f -%}
-  {%- endif -%}
-  {%- if page.word_count -%}
-    {%- capture f -%}"wordCount":{{ page.word_count }}{%- endcapture -%}
-    {%- assign ld_fields = ld_fields | push: f -%}
-  {%- endif -%}
-
-  {%- if page.author.name -%}
-    {%- capture author_object -%}{"@type":"Person","name":{{ page.author.name | jsonify }}{% if page.author.url %},"url":{{ page.author.url | jsonify }}{% endif %}{% if page.author.job_title %},"jobTitle":{{ page.author.job_title | jsonify }}{% endif %}{% if page.author.same_as %},"sameAs":{{ page.author.same_as | jsonify }}{% endif %},"worksFor":{"@id":"https://callnovo.ai/#organization"}}{%- endcapture -%}
-  {%- else -%}
-    {%- capture author_object -%}{"@id":"https://callnovo.ai/#organization"}{%- endcapture -%}
-  {%- endif -%}
-  {%- capture f -%}"author":{{ author_object | strip }}{%- endcapture -%}
-  {%- assign ld_fields = ld_fields | push: f -%}
-
-  {%- if page.reviewed_by -%}
-    {%- capture f -%}"reviewedBy":{"@type":"Person","name":{{ page.reviewed_by.name | jsonify }}{% if page.reviewed_by.url %},"url":{{ page.reviewed_by.url | jsonify }}{% endif %}}{%- endcapture -%}
-    {%- assign ld_fields = ld_fields | push: f -%}
-  {%- endif -%}
-
-  {%- capture f -%}"publisher":{"@id":"https://callnovo.ai/#organization"}{%- endcapture -%}
-  {%- assign ld_fields = ld_fields | push: f -%}
-
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"{{ page.article_type | default: 'Article' }}",{{ ld_fields | join: "," }}}
-  </script>
-  {% endif %}
-
-  {%- comment -%}
-    First post category establishes a single linear breadcrumb parent.
-    The category directory creates catch-all anchors as #topic-{slug}, so this
-    automatically resolves for all existing and future categories.
-  {%- endcomment -%}
-  {% if page.layout == 'post' %}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -176,27 +110,20 @@
       {
         "@type": "ListItem",
         "position": 2,
-        "name": {{ page.categories | first | default: "Categories" | capitalize | jsonify }},
+        "name": {{ page.categories | first | default: 'Categories' | capitalize | jsonify }},
         "item": "{% if page.categories.first %}{{ '/categories/' | absolute_url }}#topic-{{ page.categories.first | slugify }}{% else %}{{ '/categories/' | absolute_url }}{% endif %}"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": {{ page.title | jsonify }},
-        "item": "{{ page.url | absolute_url }}"
+        "item": "{{ canonical_url }}"
       }
     ]
   }
   </script>
   {% endif %}
 
-  {%- comment -%}
-    FAQPage JSON-LD is opt-in through post front matter:
-      faq:
-        - question: "..."
-          answer: "..."
-    FAQ answers must be substantively equivalent to visible page content.
-  {%- endcomment -%}
   {% if page.faq and page.faq.size > 0 %}
   <script type="application/ld+json">
   {
@@ -217,6 +144,44 @@
   }
   </script>
   {% endif %}
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://callnovo.ai/#organization",
+        "name": "Callnovo Contact Center",
+        "url": "https://callnovo.ai/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://callnovo.ai/logos/callnovo-logo.webp"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/company/callnovo-ai/",
+          "https://www.facebook.com/callnovosudamerica/",
+          "https://www.instagram.com/callnovo_bpo/",
+          "https://www.instagram.com/callnovo.bo/",
+          "https://x.com/callnovocc",
+          "https://www.threads.net/@callnovo",
+          "https://www.pinterest.com/callnovo_cc/"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "{{ '/' | absolute_url }}#website",
+        "url": "{{ '/' | absolute_url }}",
+        "name": {{ site.title | jsonify }},
+        "description": {{ site.description | jsonify }},
+        "publisher": {
+          "@id": "https://callnovo.ai/#organization"
+        },
+        "inLanguage": "{{ site.lang | default: 'en-US' }}"
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -224,13 +189,16 @@
 
   <header class="site-header">
     <div class="site-shell header-shell">
-      <a class="site-brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
-      <nav class="site-nav" aria-label="Primary">
-        <a href="{{ '/' | relative_url }}">Home</a>
-        <a href="{{ '/categories/' | relative_url }}">Categories</a>
-        <a href="{{ '/about/' | relative_url }}">About</a>
-        <a href="{{ '/editorial-standards/' | relative_url }}">Editorial Standards</a>
-        <a href="https://callnovo.ai/" target="_blank" rel="noopener noreferrer">Callnovo.ai</a>
+      <a class="site-brand" href="{{ '/' | relative_url }}" aria-label="Callnovo Contact Center Insights Home">
+        <span class="site-brand-name">Callnovo Contact Center</span>
+        <span class="site-brand-section">Insights</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="{{ '/' | relative_url }}"{% if page.url == '/' or page.url == '/index.html' %} aria-current="page"{% endif %}>Home</a>
+        <a href="{{ '/categories/' | relative_url }}"{% if page.url == '/categories/' or page.url == '/categories.html' %} aria-current="page"{% endif %}>Categories</a>
+        <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' or page.url == '/about.html' %} aria-current="page"{% endif %}>About</a>
+        <a href="{{ '/editorial-standards/' | relative_url }}"{% if page.url == '/editorial-standards/' or page.url == '/editorial-standards.html' %} aria-current="page"{% endif %}>Editorial Standards</a>
+        <a href="https://callnovo.ai/" target="_blank" rel="noopener noreferrer">Visit Callnovo.ai<span class="sr-only"> (opens in a new tab)</span></a>
       </nav>
     </div>
   </header>
@@ -241,7 +209,17 @@
 
   <footer class="site-footer">
     <div class="site-shell footer-shell">
-      <p>&copy; {{ 'now' | date: "%Y" }} Callnovo Contact Center. All rights reserved.</p>
+      <div class="footer-identity">
+        <p class="footer-brand">Callnovo Contact Center</p>
+        <p class="footer-positioning">Customer support operations, AI-enabled CX, and global BPO insight.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="{{ '/about/' | relative_url }}">About</a>
+        <a href="{{ '/categories/' | relative_url }}">Categories</a>
+        <a href="{{ '/editorial-standards/' | relative_url }}">Editorial Standards</a>
+        <a href="https://callnovo.ai/" target="_blank" rel="noopener noreferrer">Callnovo.ai<span class="sr-only"> (opens in a new tab)</span></a>
+      </nav>
+      <p class="footer-legal">&copy; {{ 'now' | date: "%Y" }} Callnovo Contact Center. All rights reserved.</p>
     </div>
   </footer>
 </body>
