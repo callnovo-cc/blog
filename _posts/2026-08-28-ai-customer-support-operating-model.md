@@ -4,7 +4,7 @@ description: "Build an AI customer support operating model that automates routin
 slug: "ai-customer-support-operating-model"
 date: 2026-08-28
 last_modified_at: 2026-08-28
-categories: [insights]
+categories: [ai, automation, customer-support, contact-center]
 tags: [ai-customer-support, customer-service-governance, human-in-the-loop, ai-handoff, contact-center-operations]
 author:
   name: "Vince Lupe"
