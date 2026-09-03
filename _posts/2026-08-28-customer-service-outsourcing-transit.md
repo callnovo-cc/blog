@@ -4,7 +4,7 @@ description: "A 7-step customer service outsourcing transition plan to protect C
 slug: "customer-service-outsourcing-transition-plan"
 date: 2026-08-28
 last_modified_at: 2026-08-28
-categories: [operations]
+categories: [outsourcing, bpo, customer-support, contact-center]
 tags: [customer-service-outsourcing, bpo-transition, support-operations, knowledge-transfer, qa-calibration, customer-experience]
 author:
   name: "Vince Lupe"
