@@ -11,8 +11,11 @@ layout: default
         <p class="eyebrow">Callnovo Insights</p>
         <h1>{{ site.title }}</h1>
         <p class="home-intro">{{ site.description }}</p>
+
         <div class="hero-actions">
+          {% if featured %}
           <a class="button button-primary" href="{{ featured.url | relative_url }}">Read latest article</a>
+          {% endif %}
           <a class="button button-secondary" href="https://callnovo.ai/contact/" target="_blank" rel="noopener noreferrer">Talk to Callnovo</a>
         </div>
       </div>
@@ -20,23 +23,34 @@ layout: default
       {% if featured %}
       <article class="featured-card">
         {% if featured.image %}
-          <a class="featured-image" href="{{ featured.url | relative_url }}">
-            <img src="{{ featured.image | relative_url }}" alt="{{ featured.image_alt | default: featured.title }}" loading="eager" decoding="async">
-          </a>
+        <a class="featured-image" href="{{ featured.url | relative_url }}">
+          <img
+            src="{{ featured.image | relative_url }}"
+            alt="{{ featured.image_alt | default: featured.title }}"
+            loading="eager"
+            decoding="async">
+        </a>
         {% endif %}
 
         <p class="featured-label">Featured</p>
-        <p class="post-meta">{{ featured.date | date: "%b %-d, %Y" }}</p>
-        <h2><a href="{{ featured.url | relative_url }}">{{ featured.title }}</a></h2>
+        <p class="post-meta">
+          <time datetime="{{ featured.date | date_to_xmlschema }}">{{ featured.date | date: "%b %-d, %Y" }}</time>
+        </p>
+
+        <h2>
+          <a href="{{ featured.url | relative_url }}">{{ featured.title }}</a>
+        </h2>
+
         {% if featured.description %}
-          <p class="featured-description">{{ featured.description }}</p>
+        <p class="featured-description">{{ featured.description }}</p>
         {% endif %}
+
         {% if featured.categories %}
-          <div class="tag-row">
-            {% for category in featured.categories limit:3 %}
-              <a class="tag" href="{{ '/categories/' | relative_url }}#{{ category | slugify }}">{{ category }}</a>
-            {% endfor %}
-          </div>
+        <div class="tag-row" aria-label="Featured article topics">
+          {% for category in featured.categories limit: 3 %}
+          <a class="tag" href="{{ '/categories/' | relative_url }}#topic-{{ category | slugify }}">{{ category }}</a>
+          {% endfor %}
+        </div>
         {% endif %}
       </article>
       {% endif %}
@@ -44,7 +58,7 @@ layout: default
   </div>
 </section>
 
-<section class="topic-strip">
+<section class="topic-strip" aria-label="Browse publication topics">
   <div class="site-shell">
     <div class="topic-strip-inner">
       <a class="topic-chip" href="{{ '/categories/' | relative_url }}">Browse categories</a>
@@ -52,76 +66,124 @@ layout: default
   </div>
 </section>
 
-<section class="post-feed">
+<section class="post-feed" aria-labelledby="latest-articles-heading">
   <div class="site-shell site-shell-narrow">
+    <h2 id="latest-articles-heading" class="section-title">Latest articles</h2>
+
     {% for post in site.posts %}
+      {% unless post.url == featured.url %}
       <article class="post-card">
         {% if post.image %}
-          <a class="post-card-image" href="{{ post.url | relative_url }}">
-            <img src="{{ post.image | relative_url }}" alt="{{ post.image_alt | default: post.title }}" loading="lazy" decoding="async">
-          </a>
+        <a class="post-card-image" href="{{ post.url | relative_url }}">
+          <img
+            src="{{ post.image | relative_url }}"
+            alt="{{ post.image_alt | default: post.title }}"
+            loading="lazy"
+            decoding="async">
+        </a>
         {% endif %}
 
-        <p class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</p>
+        <p class="post-meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+        </p>
 
         {% if post.categories %}
-          <div class="tag-row tag-row-compact">
-            {% for category in post.categories limit:3 %}
-              <a class="tag" href="{{ '/categories/' | relative_url }}#{{ category | slugify }}">{{ category }}</a>
-            {% endfor %}
-          </div>
+        <div class="tag-row tag-row-compact" aria-label="Article topics">
+          {% for category in post.categories limit: 3 %}
+          <a class="tag" href="{{ '/categories/' | relative_url }}#topic-{{ category | slugify }}">{{ category }}</a>
+          {% endfor %}
+        </div>
         {% endif %}
 
-        <h2 class="post-card-title">
+        <h3 class="post-card-title">
           <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        </h2>
+        </h3>
 
         {% if post.description %}
-          <p class="post-card-description">{{ post.description }}</p>
+        <p class="post-card-description">{{ post.description }}</p>
         {% endif %}
 
         <p class="post-card-link">
           <a href="{{ post.url | relative_url }}">Read article</a>
         </p>
       </article>
+      {% endunless %}
     {% endfor %}
   </div>
 </section>
 
-<section class="topic-sections">
+<section class="topic-sections" aria-labelledby="explore-topics-heading">
   <div class="site-shell">
+    <div class="topic-sections-heading">
+      <p class="eyebrow">Explore by decision</p>
+      <h2 id="explore-topics-heading">Find the support question you are working through</h2>
+      <p>Browse the editorial pathways that organize Callnovo’s buyer-side analysis of customer support outsourcing, AI-powered CX, commercial models, governance, and operations.</p>
+    </div>
+
     <div class="topic-sections-grid">
       <article class="topic-section-card">
         <p class="featured-label">Explore every topic</p>
-        <h2><a href="{{ '/categories/' | relative_url }}">Browse the Callnovo category index</a></h2>
-        <p>Find articles organized by the subjects that matter: pricing, BPO, AI-powered CX, customer support, and contact center operations.</p>
+        <h3>
+          <a href="{{ '/categories/' | relative_url }}">Browse the Callnovo category index</a>
+        </h3>
+        <p>Find every published article organized by its specific topic, including BPO, pricing, AI, customer support, compliance, ecommerce, and contact center operations.</p>
       </article>
 
-      {%- comment -%}
-        Use `.first` filter (safe on Jekyll arrays) instead of `slice: 0, 1` which
-        is unreliable on hash-of-arrays and throws build warnings.
-      {%- endcomment -%}
-      {% assign recent_ai_post = site.categories.ai | first %}
-      {% if recent_ai_post %}
-        <article class="topic-section-card">
-          <p class="featured-label">Latest in AI</p>
-          <h2><a href="{{ recent_ai_post.url | relative_url }}">{{ recent_ai_post.title }}</a></h2>
-          {% if recent_ai_post.description %}
-            <p>{{ recent_ai_post.description }}</p>
-          {% endif %}
-        </article>
-      {% endif %}
+      <article class="topic-section-card">
+        <p class="featured-label">AI and automation</p>
+        <h3>
+          <a href="{{ '/categories/' | relative_url }}#ai-powered-customer-support">AI-Powered Customer Support</a>
+        </h3>
+        <p>Automation boundaries, AI-to-human handoffs, and the operating controls that make AI support useful without losing human judgment.</p>
+      </article>
 
-      {% assign recent_bpo_post = site.categories.bpo | first %}
-      {% if recent_bpo_post %}
-        <article class="topic-section-card">
-          <p class="featured-label">Latest in BPO</p>
-          <h2><a href="{{ recent_bpo_post.url | relative_url }}">{{ recent_bpo_post.title }}</a></h2>
-          {% if recent_bpo_post.description %}
-            <p>{{ recent_bpo_post.description }}</p>
-          {% endif %}
-        </article>
-      {% endif %}
+      <article class="topic-section-card">
+        <p class="featured-label">Provider and transition decisions</p>
+        <h3>
+          <a href="{{ '/categories/' | relative_url }}#customer-service-outsourcing">Customer Service Outsourcing</a>
+        </h3>
+        <p>Provider selection, support transitions, SaaS coverage, what to retain in-house, and how to move customer contacts without damaging CX.</p>
+      </article>
+
+      <article class="topic-section-card">
+        <p class="featured-label">Commercial model decisions</p>
+        <h3>
+          <a href="{{ '/categories/' | relative_url }}#bpo-pricing-and-commercial-models">BPO Pricing and Commercial Models</a>
+        </h3>
+        <p>How per-FTE, transaction-based, and outcome-based arrangements allocate cost, performance risk, and accountability.</p>
+      </article>
+
+      <article class="topic-section-card">
+        <p class="featured-label">Risk and accountability</p>
+        <h3>
+          <a href="{{ '/categories/' | relative_url }}#compliance-security-and-governance">Compliance, Security, and Governance</a>
+        </h3>
+        <p>Buyer diligence for BPO controls, customer data, audit evidence, and accountable AI-support operations.</p>
+      </article>
+
+      <article class="topic-section-card">
+        <p class="featured-label">Language quality</p>
+        <h3>
+          <a href="{{ '/categories/' | relative_url }}#multilingual-customer-support">Multilingual Customer Support</a>
+        </h3>
+        <p>Localization, native-language quality, routing, cultural context, and the limits of translation-only service.</p>
+      </article>
+
+      <article class="topic-section-card">
+        <p class="featured-label">Commerce support</p>
+        <h3>
+          <a href="{{ '/categories/' | relative_url }}#ecommerce-and-amazon-customer-support">Ecommerce and Amazon Customer Support</a>
+        </h3>
+        <p>Marketplace support patterns affecting buyer trust, reviews, seller performance, and retention.</p>
+      </article>
+
+      <article class="topic-section-card">
+        <p class="featured-label">Operating delivery</p>
+        <h3>
+          <a href="{{ '/categories/' | relative_url }}#contact-center-operations">Contact Center Operations</a>
+        </h3>
+        <p>Phone coverage, escalation design, staffing, continuity, and the operational details that keep customer support working.</p>
+      </article>
     </div>
   </div>
 </section>
