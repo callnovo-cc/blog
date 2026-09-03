@@ -1,34 +1,51 @@
+
 ---
 layout: default
 permalink: /404.html
-title: Page Not Found
-description: The page you're looking for doesn't exist or may have moved.
+title: "Page Not Found"
+description: "The page you’re looking for doesn’t exist or may have moved."
 ---
 
 <section class="not-found">
   <div class="site-shell site-shell-narrow">
     <p class="eyebrow">404</p>
-    <h1>This page doesn't exist</h1>
-    <p class="home-intro">The article or page you're looking for may have been moved, renamed, or never existed. Try heading back to the homepage or browsing by topic.</p>
+    <h1>This page doesn’t exist</h1>
+    <p class="home-intro">The article or page you’re looking for may have been moved, renamed, or never existed. Try heading back to the homepage or browsing by topic.</p>
 
     <div class="hero-actions">
       <a class="button button-primary" href="{{ '/' | relative_url }}">Back to homepage</a>
       <a class="button button-secondary" href="{{ '/categories/' | relative_url }}">Browse categories</a>
     </div>
 
+    <p class="not-found-topic-links">
+      Try a popular topic:
+      <a href="{{ '/categories/' | relative_url }}#ai-powered-customer-support">AI-powered customer support</a>,
+      <a href="{{ '/categories/' | relative_url }}#customer-service-outsourcing">customer service outsourcing</a>, or
+      <a href="{{ '/categories/' | relative_url }}#contact-center-operations">contact center operations</a>.
+    </p>
+
+    <p class="not-found-contact">
+      Need help with a specific support challenge? <a href="https://callnovo.ai/contact/" target="_blank" rel="noopener noreferrer">Talk to Callnovo</a>.
+    </p>
+
     {% assign recent_posts = site.posts | limit: 3 %}
     {% if recent_posts and recent_posts.size > 0 %}
     <div class="not-found-recent">
-      <h2>Recent articles</h2>
+      <h2>Recent articles to explore</h2>
+
       <div class="related-grid">
         {% for post in recent_posts %}
-          <article class="related-card">
-            <p class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</p>
-            <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-            {% if post.description %}
-              <p>{{ post.description }}</p>
-            {% endif %}
-          </article>
+        <article class="related-card">
+          <p class="post-meta">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+          </p>
+
+          <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+
+          {% if post.description %}
+          <p>{{ post.description }}</p>
+          {% endif %}
+        </article>
         {% endfor %}
       </div>
     </div>
