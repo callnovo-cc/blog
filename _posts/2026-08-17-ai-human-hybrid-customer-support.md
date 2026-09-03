@@ -3,7 +3,7 @@ title: "AI Human Hybrid Customer Support: Where Automation Stops and Human Judgm
 description: "See how an AI human hybrid customer support model actually splits work—what AI resolves, what escalates, and how to evaluate a vendor's claims."
 date: 2026-08-17
 last_modified_at: 2026-08-19
-categories: [ai, bpo, automation, contact-center, customer-support, hybrid-support]
+categories: [ai, bpo, automation, contact-center, customer-support]
 tags: [ai-support, hybrid-support, automation, e-e-a-t, buyer-checklist]
 image: /assets/images/article-01-ai-human-hybrid-support-hero.webp
 image_alt: "AI human hybrid customer support agent working alongside an AI dashboard in a modern contact center."
