@@ -1,3 +1,4 @@
+
 ---
 layout: default
 ---
@@ -6,39 +7,66 @@ layout: default
   <div class="site-shell site-shell-narrow">
     <p class="eyebrow">Category</p>
     <h1>{{ page.title }}</h1>
+
     {% if page.description %}
-      <p class="home-intro">{{ page.description }}</p>
+    <p class="home-intro">{{ page.description }}</p>
     {% endif %}
   </div>
 </section>
 
-<section class="post-feed">
-  <div class="site-shell site-shell-narrow">
-    {% assign filtered_posts = site.posts | where_exp: "post", "post.categories contains page.category_name" %}
-    {% for post in filtered_posts %}
-      <article class="post-card">
-        <p class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</p>
+{% assign filtered_posts = site.posts | where_exp: "post", "post.categories contains page.category_name" %}
 
-        {% if post.categories %}
-          <div class="tag-row tag-row-compact">
-            {% for category in post.categories limit:3 %}
-              <a class="tag" href="{{ '/category/' | append: category | append: '/' | relative_url }}">{{ category }}</a>
-            {% endfor %}
-          </div>
+<section class="post-feed" aria-labelledby="category-articles-heading">
+  <div class="site-shell site-shell-narrow">
+    {% if filtered_posts.size > 0 %}
+      <h2 id="category-articles-heading" class="section-title">
+        Articles about {{ page.title | downcase }}
+      </h2>
+
+      {% for post in filtered_posts %}
+      <article class="post-card">
+        {% if post.image %}
+        <a class="post-card-image" href="{{ post.url | relative_url }}">
+          <img
+            src="{{ post.image | relative_url }}"
+            alt="{{ post.image_alt | default: post.title }}"
+            loading="lazy"
+            decoding="async">
+        </a>
         {% endif %}
 
-        <h2 class="post-card-title">
+        <p class="post-meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+        </p>
+
+        {% if post.categories %}
+        <div class="tag-row tag-row-compact" aria-label="Article topics">
+          {% for category in post.categories limit: 3 %}
+          <a class="tag" href="{{ '/categories/' | relative_url }}#topic-{{ category | slugify }}">{{ category }}</a>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        <h3 class="post-card-title">
           <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        </h2>
+        </h3>
 
         {% if post.description %}
-          <p class="post-card-description">{{ post.description }}</p>
+        <p class="post-card-description">{{ post.description }}</p>
         {% endif %}
 
         <p class="post-card-link">
           <a href="{{ post.url | relative_url }}">Read article</a>
         </p>
       </article>
-    {% endfor %}
+      {% endfor %}
+
+    {% else %}
+      <div class="empty-state">
+        <h2 id="category-articles-heading">No articles are available in this category yet</h2>
+        <p>Browse the full Callnovo category index to find related articles on customer support, BPO, AI-powered CX, compliance, and contact center operations.</p>
+        <a class="button button-secondary" href="{{ '/categories/' | relative_url }}">Browse all categories</a>
+      </div>
+    {% endif %}
   </div>
 </section>
