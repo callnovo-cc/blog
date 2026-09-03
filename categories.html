@@ -60,7 +60,7 @@ permalink: /categories/
   <p>Understand what a contact-center proposal actually covers, how pricing models allocate risk, and when per-FTE, per-transaction, or outcome-based arrangements fit the work you need done.</p>
   <ul class="topic-article-list">
     {% for post in all_posts %}
-      {% if post.categories contains 'pricing' or post.categories contains 'outcome-based-pricing' %}
+      {% if post.categories contains 'pricing' %}
         <li>
           <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
           {% if post.description %}<p>{{ post.description }}</p>{% endif %}
