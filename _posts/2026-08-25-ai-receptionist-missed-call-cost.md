@@ -4,7 +4,7 @@ description: "See what missed calls really cost small business owners in lost re
 slug: "ai-receptionist-missed-call-cost"
 date: 2026-08-25
 last_modified_at: 2026-08-25
-categories: [insights]
+categories: [ai, small-business, customer-support, contact-center]
 tags: [ai-receptionist, missed-calls, small-business, call-answering-service]
 author:
   name: "Vince Lupe"
