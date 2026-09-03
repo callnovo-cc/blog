@@ -133,28 +133,34 @@ permalink: /categories/
 <section class="topic-hub" id="all-topics">
   <h2>All Topics</h2>
   <p>Every topic below is generated from the categories assigned to published Callnovo articles. New published articles appear automatically in their matching topic after the next GitHub Pages build.</p>
+
   {% assign category_pairs = site.categories | sort %}
   {% for category in category_pairs %}
     {% assign category_name = category[0] %}
-{% assign category_posts = category[1] %}
-{% assign category_label = category_name | replace: '-', ' ' | capitalize %}
+    {% assign category_posts = category[1] %}
+    {% assign category_label = category_name | replace: '-', ' ' | capitalize %}
 
-{% if category_name == 'ai' %}
-  {% assign category_label = 'AI' %}
-{% elsif category_name == 'bpo' %}
-  {% assign category_label = 'BPO' %}
-{% elsif category_name == 'saas' %}
-  {% assign category_label = 'SaaS' %}
-{% endif %}
+    {% if category_name == 'ai' %}
+      {% assign category_label = 'AI' %}
+    {% elsif category_name == 'bpo' %}
+      {% assign category_label = 'BPO' %}
+    {% elsif category_name == 'saas' %}
+      {% assign category_label = 'SaaS' %}
+    {% endif %}
 
-<section class="topic-directory-entry" id="topic-{{ category_name | slugify }}">
-  <h3>{{ category_label }}</h3>
-  <ul class="topic-article-list">
-    {% for post in category_posts %}
-      <li>
-        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        {% if post.description %}<p>{{ post.description }}</p>{% endif %}
-      </li>
-    {% endfor %}
-  </ul>
+    <section class="topic-directory-entry" id="topic-{{ category_name | slugify }}">
+      <h3>{{ category_label }}</h3>
+
+      <ul class="topic-article-list">
+        {% for post in category_posts %}
+          <li>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            {% if post.description %}
+              <p>{{ post.description }}</p>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endfor %}
 </section>
