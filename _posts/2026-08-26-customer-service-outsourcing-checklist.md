@@ -4,7 +4,7 @@ description: "Use this customer service outsourcing checklist to compare AI-enab
 slug: "customer-service-outsourcing-checklist"
 date: 2026-08-26
 last_modified_at: 2026-08-26
-categories: [insights]
+categories: [outsourcing, bpo, customer-support, vendor-evaluation]
 tags: [outsourcing-checklist, bpo-evaluation, ai-customer-service, vendor-selection]
 author:
   name: "Vince Lupe"
