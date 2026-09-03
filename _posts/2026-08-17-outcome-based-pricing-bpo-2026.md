@@ -3,7 +3,7 @@ title: "Outcome-Based Pricing vs. Per-FTE: When Paying for Resolution Actually W
 description: "Outcome-based pricing is replacing per-FTE billing across BPO in 2026. See real cost ranges, why estimates disagree, and how to evaluate a vendor's offer."
 date: 2026-08-17
 last_modified_at: 2026-08-19
-categories: [bpo, contact-center, customer-support, outcome-based-pricing, outsourcing]
+categories: [bpo, contact-center, customer-support, outsourcing, pricing]
 tags: [outcome-based-pricing, per-fte, pricing, cognizant, everest-group]
 image: /assets/images/article-03-outcome-vs-fte-hero.webp
 image_alt: "Outcome-based pricing versus per-FTE staffing model comparison concept in a business setting."
