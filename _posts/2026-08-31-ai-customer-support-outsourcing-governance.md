@@ -4,7 +4,7 @@ description: "Learn how to govern AI customer support outsourcing with clear aut
 slug: "ai-customer-support-outsourcing-governance"
 date: 2026-08-31
 last_modified_at: 2026-08-31
-categories: [insights]
+categories: [ai, outsourcing, bpo, compliance, customer-support]
 tags: [ai-customer-support, customer-service-governance, ai-outsourcing, human-in-the-loop, multilingual-support, contact-center-operations]
 author:
   name: "Vince Lupe"
