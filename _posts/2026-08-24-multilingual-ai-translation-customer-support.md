@@ -4,7 +4,7 @@ description: "AI translation hits 82-96% accuracy in 2026, but that gap costs yo
 slug: "multilingual-ai-translation-customer-support"
 date: 2026-08-24
 last_modified_at: 2026-08-24
-categories: [insights]
+categories: [ai, multilingual, customer-support, contact-center]
 tags: [multilingual-support, ai-translation, customer-service, localization]
 author:
   name: "Vince Lupe"
