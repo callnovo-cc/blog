@@ -34,21 +34,6 @@ disclaimer: "informational"
 <script type="application/ld+json">
 {
 "@context": "https://schema.org",
-"@type": "Article",
-"headline": "Why AI Translation Alone Can't Deliver Real Multilingual Customer Support",
-"description": "AI translation hits 82-96% accuracy in 2026, but that gap costs you exactly where it matters most. Here's when native-speaking agents are still required.",
-"image": "https://callnovo-cc.github.io/blog/assets/images/hero-multilingual-ai-translation-2026-08-24.webp",
-"datePublished": "2026-08-24",
-"dateModified": "2026-08-24",
-"mainEntityOfPage": {"@type": "WebPage", "@id": "https://callnovo-cc.github.io/blog/2026/08/24/multilingual-ai-translation-customer-support/"},
-"author": {"@type": "Person", "name": "Vince Lupe", "url": "https://www.linkedin.com/in/vince-lupe/"},
-"publisher": {"@type": "Organization", "name": "Callnovo Contact Center", "url": "https://callnovo.ai/"}
-}
-</script>
-
-<script type="application/ld+json">
-{
-"@context": "https://schema.org",
 "@type": "FAQPage",
 "mainEntity": [
 {"@type": "Question", "name": "How accurate is AI translation for customer support in 2026?", "acceptedAnswer": {"@type": "Answer", "text": "AI translation accuracy in 2026 ranges from 82-96% on high-resource language pairs and routine content, reaching 90-94% on legal/technical content with consensus-based systems, but falling to 55-70% on low-resource language pairs like Farsi or Armenian. The right question isn't the average, it's which range applies to your actual contact mix."}},
