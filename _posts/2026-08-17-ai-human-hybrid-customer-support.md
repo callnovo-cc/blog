@@ -1,6 +1,7 @@
 ---
 title: "AI Human Hybrid Customer Support: Where Automation Stops and Human Judgment Starts"
 description: "See how an AI human hybrid customer support model actually splits work—what AI resolves, what escalates, and how to evaluate a vendor's claims."
+slug: "ai-human-hybrid-customer-support"
 date: 2026-08-17
 last_modified_at: 2026-08-19
 categories: [ai, bpo, automation, contact-center, customer-support]
@@ -25,9 +26,16 @@ faq:
   - question: "How do I measure whether a hybrid model is working?"
     answer: "Track AI-resolved, AI-assisted, and human-resolved contacts as separate categories with their own satisfaction and reopen-rate metrics, rather than one blended average that can mask weak performance in any single category."
 word_count: 1684
+reading_time_minutes: 8
 article_type: "Article"
+canonical_url: "https://callnovo-cc.github.io/blog/2026/08/17/ai-human-hybrid-customer-support/"
 redirect_from:
   - /blog/2026/08/17/ai-human-hybrid-customer-support/
+breadcrumbs: true
+twitter_creator: "@callnovocc"
+sponsored: false
+ai_assisted: true
+disclaimer: "informational"
 ---
 
 ![A modern support floor where human agents and AI systems handle different tiers of the same conversation.]({{ '/assets/images/article-01-ai-human-hybrid-support-hero.webp' | relative_url }})
