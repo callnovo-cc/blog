@@ -12,7 +12,7 @@ author:
   url: "https://www.linkedin.com/in/vince-lupe/"
   same_as:
     - "https://www.linkedin.com/in/vince-lupe/"
-image: "https://raw.githubusercontent.com/callnovo-cc/blog/main/assets/images/hero-bpo-compliance-checklist.webp"
+image: "/assets/images/hero-bpo-compliance-checklist.webp"
 image_alt: "Professional reviewing a compliance audit document at an office desk"
 image_caption: "What to verify before you sign."
 image_credit: "Illustration: Callnovo"
@@ -30,21 +30,6 @@ sponsored: false
 ai_assisted: true
 disclaimer: "informational"
 ---
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "The Compliance and Data-Security Checklist Buyers Should Demand Before Signing With a BPO",
-  "description": "48% of breaches now involve a vendor. What to demand from any outsourced customer support vendor before signing: SOC 2 Type II, BAA, GDPR DPA, PCI DSS.",
-  "image": "https://raw.githubusercontent.com/callnovo-cc/blog/main/assets/images/hero-bpo-compliance-checklist.webp",
-  "datePublished": "2026-08-22",
-  "dateModified": "2026-08-22",
-  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://callnovo-cc.github.io/blog/2026/08/22/bpo-compliance-data-security-checklist/"},
-  "author": {"@type": "Person", "name": "Vince Lupe", "url": "https://www.linkedin.com/in/vince-lupe/"},
-  "publisher": {"@type": "Organization", "name": "Callnovo Contact Center", "url": "https://callnovo.ai/"}
-}
-</script>
 
 <script type="application/ld+json">
 {
@@ -76,7 +61,7 @@ Vendors who hedge on these five areas are telling you something important before
 
 The third-party vendor data breach statistics explain the urgency better than any warning could. 48% of confirmed data breaches in 2026 involved a third-party vendor, up sharply, a 60% year-over-year increase, from 30% the year before, according to Verizon's 2026 Data Breach Investigations Report ([Verizon DBIR, 2026](https://www.castlerocksky.com/third-party-vendors-caused-48-of-data-breaches-last-year-is-your-business-at-risk/){:rel="noopener"}, as reported by [Castle Rock Sky, 2026](https://www.castlerocksky.com/third-party-vendors-caused-48-of-data-breaches-last-year-is-your-business-at-risk/){:rel="noopener"}; [Digital Applied, 2026](https://www.digitalapplied.com/blog/cybersecurity-statistics-2026-data-points){:rel="noopener"}; [Preferred Data, 2026](https://www.preferreddata.com/blog/verizon-dbir-2026-third-party-breaches-48-percent-vendor-risk-smb-north-carolina){:rel="noopener"}). That shift means a vendor's security posture is no longer a side consideration in an outsourcing decision, it is functionally your own attack surface. A support vendor with weak controls does not just risk their own data; it risks yours, and your customers'.
 
-![Statistical infographic showing 48 percent of 2026 data breaches involved a third-party vendor, up from 30 percent the prior year](https://raw.githubusercontent.com/callnovo-cc/blog/main/assets/images/pin-bpo-compliance-checklist.webp){: loading="lazy" width="400" height="716" style="display:block;margin:0 auto;max-width:100%;height:auto;"}
+![Statistical infographic showing 48 percent of 2026 data breaches involved a third-party vendor, up from 30 percent the prior year]({{ '/assets/images/pin-bpo-compliance-checklist.webp' | relative_url }}){: loading="lazy" width="400" height="716" style="display:block;margin:0 auto;max-width:100%;height:auto;"}
 
 ## What Does SOC 2 Type II Actually Prove, and Why Does the Report Matter More Than the Badge?
 
@@ -107,7 +92,7 @@ PCI DSS call center compliance applies the moment a vendor's agents handle, view
 | GDPR DPA | Contractual terms governing data processing scope, duration, and controller audit rights ([Olissa, 2026](https://olissa.fi/blog/gdpr-compliant-customer-support-outsourcing-guide){:rel="noopener"}) | Any EU resident's personal data in the support flow |
 | HIPAA BAA | Legal responsibility for protected health information (PHI) handled on your behalf ([OptimizeCEC, 2026](https://optimizecec.com/how-to-think-about-hipaa-when-outsourcing-customer-experience/){:rel="noopener"}) | Any support flow referencing patient or health data |
 
-![Two professionals reviewing a vendor compliance report together](https://raw.githubusercontent.com/callnovo-cc/blog/main/assets/images/inline1-compliance-comparison.webp){: loading="lazy" width="1200" height="654"}
+![Two professionals reviewing a vendor compliance report together]({{ '/assets/images/inline1-compliance-comparison.webp' | relative_url }}){: loading="lazy" width="1200" height="654"}
 
 *SOC 2, GDPR/DPA, PCI DSS, and HIPAA/BAA each cover different ground, see the comparison above.*
 {: .figure-caption }
