@@ -32,31 +32,6 @@ disclaimer: "informational"
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "AI Customer Support Operating Model: What to Automate, What to Escalate, and How to Govern the Handoff",
-  "description": "Build an AI customer support operating model that automates routine requests, escalates risk, and preserves context in every human handoff.",
-  "image": "https://callnovo-cc.github.io/assets/images/hero-ai-customer-support-operating-model.webp",
-  "datePublished": "2026-08-28",
-  "dateModified": "2026-08-28",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://callnovo-cc.github.io/blog/2026/08/28/ai-customer-support-operating-model/"
-  },
-  "author": {
-    "@type": "Person",
-    "name": "Vince Lupe"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Callnovo Contact Center",
-    "url": "https://callnovo.ai/"
-  }
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
     {
