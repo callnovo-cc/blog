@@ -32,21 +32,6 @@ disclaimer: "informational"
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "AI Customer Support Outsourcing in 2026: The Enterprise Governance Framework for Automation, Human Escalation, and Multilingual Service",
-  "description": "Learn how to govern AI customer support outsourcing with clear automation boundaries, human escalation, multilingual quality controls, and vendor-evaluation criteria.",
-  "image": "https://callnovo-cc.github.io/assets/images/ai-customer-support-outsourcing-governance-hero.webp",
-  "datePublished": "2026-08-31",
-  "dateModified": "2026-08-31",
-  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://callnovo-cc.github.io/blog/2026/08/31/ai-customer-support-outsourcing-governance/"},
-  "author": {"@type": "Person", "name": "Vince Lupe"},
-  "publisher": {"@type": "Organization", "name": "Callnovo Contact Center", "url": "https://callnovo.ai/"}
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
     {
