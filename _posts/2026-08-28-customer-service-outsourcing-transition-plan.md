@@ -32,31 +32,6 @@ disclaimer: "informational"
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Customer Service Outsourcing Transition Plan",
-  "description": "A 7-step customer service outsourcing transition plan to protect CX, knowledge, SLAs, and trust when moving support to a BPO partner.",
-  "image": "https://callnovo-cc.github.io/assets/images/customer-service-outsourcing-transition-plan-hero.webp",
-  "datePublished": "2026-08-28",
-  "dateModified": "2026-08-28",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://callnovo-cc.github.io/blog/2026/08/28/customer-service-outsourcing-transition-plan/"
-  },
-  "author": {
-    "@type": "Person",
-    "name": "Vince Lupe"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Callnovo Contact Center",
-    "url": "https://callnovo.ai/"
-  }
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
     {
