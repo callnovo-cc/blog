@@ -84,7 +84,7 @@ A premium footwear brand's problem wasn't headcount — it was inconsistent hiri
 
 All three brands solved a different symptom of the same root problem: support that wasn't structured to scale with the business. The fix in each case combined two things — agents trained specifically on that product category, not generic scripts, and a single unified inbox inside Amazon Seller Central rather than a patchwork of disconnected tools. 'Category-trained' in practice means product-specific onboarding before an agent ever answers a live ticket, defined escalation paths for edge cases that a script can't cover, and ongoing QA coaching rather than a one-time training session that's never revisited.
 
-![Unified customer-support inbox dashboard on a laptop screen in an operations setting.](https://callnovo-cc.github.io/blog/assets/images/vis2-amazon-seller-support-pattern.webp){: loading="lazy" width="1600" height="1200" }
+![Unified customer-support inbox dashboard on a laptop screen in an operations setting.]({{ "/assets/images/vis2-amazon-seller-support-pattern.webp" | relative_url }}){: loading="lazy" width="1600" height="1200" }
 
 *A single unified inbox inside Amazon Seller Central — the structural fix behind all three case studies in this article.*
 
