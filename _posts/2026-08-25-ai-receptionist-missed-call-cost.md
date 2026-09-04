@@ -34,21 +34,6 @@ disclaimer: "informational"
 <script type="application/ld+json">
 {
 "@context": "https://schema.org",
-"@type": "Article",
-"headline": "The Cost of Missed Calls Small Business Owners Face",
-"description": "See what missed calls really cost small business owners in lost revenue each month, and how an AI receptionist closes that gap 24/7 without adding headcount.",
-"image": "https://callnovo-cc.github.io/blog/assets/images/hero-ai-receptionist-missed-call-cost.webp",
-"datePublished": "2026-08-25",
-"dateModified": "2026-08-25",
-"mainEntityOfPage": {"@type": "WebPage", "@id": "https://callnovo-cc.github.io/blog/2026/08/25/ai-receptionist-missed-call-cost/"},
-"author": {"@type": "Person", "name": "Vince Lupe", "url": "https://www.linkedin.com/in/vince-lupe/"},
-"publisher": {"@type": "Organization", "name": "Callnovo Contact Center", "url": "https://callnovo.ai/"}
-}
-</script>
-
-<script type="application/ld+json">
-{
-"@context": "https://schema.org",
 "@type": "FAQPage",
 "mainEntity": [
 {"@type": "Question", "name": "How many calls does the average small business actually miss?", "acceptedAnswer": {"@type": "Answer", "text": "Published estimates vary by methodology, ranging from roughly 20% to as high as 62% of inbound calls, with after-hours calls disproportionately likely to go unanswered (getAira, 2026; CallJolt, 2026), and the specific number depends heavily on industry, business hours, and whether call-forwarding or voicemail is in place. Home-services and healthcare businesses tend to see higher after-hours volume than retail, which pushes their missed-call share toward the higher end of that range."}},
@@ -86,7 +71,7 @@ Industry aggregators commonly model missed-call losses at $100 to $1,200 per cal
 2. Estimate your average value per converted call.
 3. Multiply missed calls per month by estimated value per call.
 
-![Step-by-step missed-call cost calculation formula graphic.](/blog/assets/images/VIS2-ai-receptionist-missed-call-cost.webp){: loading="lazy" width="1200" height="800"}
+![Step-by-step missed-call cost calculation formula graphic.]({{ "/assets/images/VIS2-ai-receptionist-missed-call-cost.webp" | relative_url }}){: loading="lazy" width="1200" height="800"}
 
 *A simple formula for estimating your own missed-call cost.*
 {: .figure-caption }
@@ -104,7 +89,7 @@ Each common fix addresses part of the problem, but each also has a structural ga
 | Hiring an in-house receptionist | Limited to one person's hours | Limited to the hire's own languages | Full salary and benefits |
 | AI receptionist | 24/7, no shift gaps | 100+ languages via AI translation, human backup available | Per-call/per-minute pricing |
 
-![Comparison graphic of voicemail, answering service, and AI receptionist coverage.](/blog/assets/images/vis1-ai-receptionist-missed-call-cost.webp){: loading="lazy" width="1200" height="800"}
+![Comparison graphic of voicemail, answering service, and AI receptionist coverage.]({{ "/assets/images/vis1-ai-receptionist-missed-call-cost.webp" | relative_url }}){: loading="lazy" width="1200" height="800"}
 
 *Three ways to cover an incoming call -- and what each one actually delivers.*
 {: .figure-caption }
