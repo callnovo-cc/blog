@@ -3,8 +3,8 @@ layout: post
 title: "AI Customer Service Outsourcing: What Changes in 2026"
 description: "Will AI replace your outsourcing partner? See what AI customer service outsourcing changes—and where accountable human support still matters."
 slug: "ai-wont-replace-outsourcing-partner"
-date: 2026-09-07
-last_modified_at: 2026-09-07
+date: 2026-09-04
+last_modified_at: 2026-09-04
 categories:
   - ai
   - outsourcing
