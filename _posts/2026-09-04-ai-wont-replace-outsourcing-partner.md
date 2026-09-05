@@ -193,10 +193,6 @@ Track resolution quality, repeat-contact rate, escalation quality, customer sati
 
 **Vince Lupe** is a Marketing Specialist at Callnovo Contact Center, focused on customer-support operations, AI-enabled service models, and market development.
 
-## Disclosure
-
-This article was published by Callnovo Contact Center. It provides general operational information and does not constitute legal, financial, security, or compliance advice.
-
 ## References
 
 - [Callnovo. (n.d.). *AI-powered customer service — Human expertise, machine intelligence.*](https://callnovo.ai/ai-customer-service/)
