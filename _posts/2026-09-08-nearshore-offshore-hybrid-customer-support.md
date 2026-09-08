@@ -3,8 +3,8 @@ layout: post
 title: "Nearshore vs. Offshore vs. Hybrid Customer Support: How to Choose in 2026"
 description: "Comparing nearshore vs. offshore customer support in 2026? See sourced hourly-rate benchmarks, a 4-variable decision framework, and where hybrid delivery fits."
 slug: "nearshore-offshore-hybrid-customer-support"
-date: 2026-09-14
-last_modified_at: 2026-09-14
+date: 2026-09-08
+last_modified_at: 2026-09-08
 categories:
   - outsourcing
   - bpo
