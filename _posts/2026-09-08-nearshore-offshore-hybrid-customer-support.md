@@ -90,13 +90,13 @@ The nearshore vs offshore cost difference 2026 buyers should budget against is r
 
 Source: [Helpware (2026)](https://www.helpware.com/blog/call-center-outsourcing-cost-comparison); [The Office Gurus (2026)](https://theofficegurus.com/top-contact-center-outsourcing-trends-for-2026/).
 
-![Bar chart comparing 2026 hourly customer support delivery rates across offshore, nearshore, and onshore/hybrid models](/assets/images/September%202026/nearshore-offshore-hybrid-figure-01.webp){: loading="lazy" width="1200" height="675"}
+![Bar chart comparing 2026 hourly customer support delivery rates across offshore, nearshore, and onshore/hybrid models]({{ '/assets/images/September 2026/nearshore-offshore-hybrid-figure-01.webp' | relative_url }}){: loading="lazy" width="1200" height="675"}
 
 *Offshore delivery carries the lowest headline hourly rate, but nearshore and hybrid models close the gap once time-zone coverage and quality are factored in.*
 
 Latin America's nearshore market is also one of the fastest-growing segments of the global BPO industry heading into the next decade, expanding from $16.59 billion in 2025 to a projected $19.82 billion by 2030 at a 3.63% compound annual growth rate ([Wise, 2025](https://wise.com/us/blog/outsourcing-latin-america)).
 
-![Chart showing projected growth of the Latin America BPO and nearshore customer support market through 2030](/assets/images/September%202026/nearshore-offshore-hybrid-figure-02.webp){: loading="lazy" width="1200" height="675"}
+![Chart showing projected growth of the Latin America BPO and nearshore customer support market through 2030]({{ '/assets/images/September 2026/nearshore-offshore-hybrid-figure-02.webp' | relative_url }}){: loading="lazy" width="1200" height="675"}
 
 *Nearshore delivery in Latin America is one of the fastest-growing segments of the global BPO market heading into the next decade.*
 
@@ -116,7 +116,7 @@ A healthcare or fintech company handling PHI, PCI, or equivalent regulated data 
 
 An e-commerce brand fielding a large volume of order-status, returns, and routine product questions - work with low compliance exposure and minimal real-time interaction requirements - is typically the strongest fit for offshore delivery, where the cost advantage outweighs the smaller time-zone gap.
 
-![2x2 decision matrix mapping time-zone overlap and compliance exposure to the best-fit customer support delivery model](/assets/images/September%202026/nearshore-offshore-hybrid-figure-03.webp){: loading="lazy" width="1200" height="675"}
+![2x2 decision matrix mapping time-zone overlap and compliance exposure to the best-fit customer support delivery model]({{ '/assets/images/September 2026/nearshore-offshore-hybrid-figure-03.webp' | relative_url }}){: loading="lazy" width="1200" height="675"}
 
 *The right delivery model depends less on geography and more on how much time-zone overlap and compliance oversight your support operation actually needs.*
 
