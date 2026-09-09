@@ -172,3 +172,19 @@ Compliance-heavy industries generally benefit most from nearshore or hybrid mode
 **How do I decide between nearshore, offshore, and hybrid for my company?**
 
 The decision should weigh four variables: required time-zone overlap with customers, language and market coverage needed, compliance or regulatory exposure, and expected support volume, particularly during peak seasons.
+
+## References
+
+Callnovo. (n.d.-a). *About Callnovo*. Retrieved September 9, 2026, from https://callnovo.com/
+
+Callnovo. (n.d.-b). *Hire your team*. Retrieved September 9, 2026, from https://callnovo.ai/services/hire-your-team/
+
+Callnovo. (n.d.-c). *Pay-per-resolution*. Retrieved September 9, 2026, from https://callnovo.ai/services/pay-per-resolution/
+
+Helpware. (2026). *Call center outsourcing cost comparison: 2026 rate benchmarks*. https://www.helpware.com/blog/call-center-outsourcing-cost-comparison
+
+MM Solutions. (2026). *US-based vs. offshore outsourcing: 2026 cost and quality analysis*. https://mmsoln.com/blog/us-based-vs-offshore-outsourcing-2026-cost-quality-analysis
+
+The Office Gurus. (2026). *Top contact center outsourcing trends for 2026*. https://theofficegurus.com/top-contact-center-outsourcing-trends-for-2026/
+
+Wise. (2025). *Outsourcing to Latin America: Market trends and BPO growth*. https://wise.com/us/blog/outsourcing-latin-america
