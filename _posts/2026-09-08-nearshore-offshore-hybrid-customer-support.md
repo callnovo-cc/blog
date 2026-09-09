@@ -175,16 +175,16 @@ The decision should weigh four variables: required time-zone overlap with custom
 
 ## References
 
-Callnovo. (n.d.-a). *About Callnovo*. Retrieved September 9, 2026, from https://callnovo.com/
+Callnovo. (n.d.-a). [*About Callnovo*](https://callnovo.com/). Retrieved September 9, 2026.
 
-Callnovo. (n.d.-b). *Hire your team*. Retrieved September 9, 2026, from https://callnovo.ai/services/hire-your-team/
+Callnovo. (n.d.-b). [*Hire your team*](https://callnovo.ai/services/hire-your-team/). Retrieved September 9, 2026.
 
-Callnovo. (n.d.-c). *Pay-per-resolution*. Retrieved September 9, 2026, from https://callnovo.ai/services/pay-per-resolution/
+Callnovo. (n.d.-c). [*Pay-per-resolution*](https://callnovo.ai/services/pay-per-resolution/). Retrieved September 9, 2026.
 
-Helpware. (2026). *Call center outsourcing cost comparison: 2026 rate benchmarks*. https://www.helpware.com/blog/call-center-outsourcing-cost-comparison
+Helpware. (2026). [*Call center outsourcing cost comparison: 2026 rate benchmarks*](https://www.helpware.com/blog/call-center-outsourcing-cost-comparison).
 
-MM Solutions. (2026). *US-based vs. offshore outsourcing: 2026 cost and quality analysis*. https://mmsoln.com/blog/us-based-vs-offshore-outsourcing-2026-cost-quality-analysis
+MM Solutions. (2026). [*US-based vs. offshore outsourcing: 2026 cost and quality analysis*](https://mmsoln.com/blog/us-based-vs-offshore-outsourcing-2026-cost-quality-analysis).
 
-The Office Gurus. (2026). *Top contact center outsourcing trends for 2026*. https://theofficegurus.com/top-contact-center-outsourcing-trends-for-2026/
+The Office Gurus. (2026). [*Top contact center outsourcing trends for 2026*](https://theofficegurus.com/top-contact-center-outsourcing-trends-for-2026/).
 
-Wise. (2025). *Outsourcing to Latin America: Market trends and BPO growth*. https://wise.com/us/blog/outsourcing-latin-america
+Wise. (2025). [*Outsourcing to Latin America: Market trends and BPO growth*](https://wise.com/us/blog/outsourcing-latin-america).
