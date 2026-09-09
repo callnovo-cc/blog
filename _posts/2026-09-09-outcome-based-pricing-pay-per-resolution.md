@@ -17,7 +17,7 @@ author:
   url: "https://www.linkedin.com/in/vince-lupe/"
   same_as:
     - "https://www.linkedin.com/in/vince-lupe/"
-image: /September%202026/assets/images/outcome-based-pricing-pay-per-resolution-hero.webp
+image: /assets/images/September%202026/outcome-based-pricing-pay-per-resolution-hero.webp
 image_alt: "Customer support operations manager reviewing a resolved-ticket and cost-per-resolution dashboard"
 image_caption: "Outcome-based pricing shifts the core billing question from staffed hours to resolved outcomes — but only if \"resolved\" is defined the same way by both sides."
 image_credit: "Illustration: Callnovo"
@@ -62,7 +62,7 @@ Definitions vary by vendor, and this variance is the single biggest source of bi
 - Fin (Intercom): counts satisfaction-survey-confirmed or no-recontact resolutions within a defined window ([valentinaincognito.com, 2026](https://valentinaincognito.com/blog/bpo-pricing-models))
 - Callnovo's pay-per-resolution model: counts a resolution only when the customer's stated issue is closed and no repeat contact on the same issue occurs within an agreed window, verified through QA sampling ([Callnovo, 2026b](https://callnovo.ai/services/pay-per-resolution/))
 
-![Governance scorecard infographic showing five hybrid customer-support quality dimensions]({{ "/September%202026/assets/images/outcome-based-pricing-pay-per-resolution-figure-01.webp" | relative_url }}){: loading="lazy" width="1200" height="675"}
+![Governance scorecard infographic showing five hybrid customer-support quality dimensions]({{ "/assets/images/September%202026/outcome-based-pricing-pay-per-resolution-figure-01.webp" | relative_url }}){: loading="lazy" width="1200" height="675"}
 
 *Governance scorecard dimensions — resolution quality, repeat-contact rate, escalation quality, satisfaction, and QA coverage — form the auditable backbone of any outcome-based contract.*
 
@@ -72,7 +72,7 @@ A frequent buyer question here is how do BPOs define a resolution in a way that 
 
 The core trade-off in pay per resolution vs per FTE pricing is predictability versus alignment. Per-FTE pricing gives buyers a fixed, forecastable monthly cost regardless of ticket complexity or volume swings, but it does not reward the vendor for speed or first-contact resolution ([Callnovo, 2026c](https://callnovo.com/call-center-costs-2025-worth-it-or-waste/)). Outcome-based pricing aligns vendor incentives directly with customer outcomes, but it introduces variability: a spike in complex, hard-to-resolve tickets can raise the effective per-resolution rate even though the headline number looks lower ([Dholakia, 2026](https://www.linkedin.com/pulse/outcome-based-pricing-practice-what-outcomes-ai-really-utpal-dholakia-ihazc)).
 
-![Side-by-side comparison of a poor AI-to-human handoff with disconnected context versus a good handoff with a full context card]({{ "/September%202026/assets/images/outcome-based-pricing-pay-per-resolution-figure-02.webp" | relative_url }}){: loading="lazy" width="1200" height="675"}
+![Side-by-side comparison of a poor AI-to-human handoff with disconnected context versus a good handoff with a full context card]({{ "/assets/images/September%202026/outcome-based-pricing-pay-per-resolution-figure-02.webp" | relative_url }}){: loading="lazy" width="1200" height="675"}
 
 *AI-to-human handoff quality directly determines whether a resolution counts on the first attempt or triggers a costly repeat contact.*
 
@@ -89,7 +89,7 @@ Rate benchmarks vary sharply by ticket complexity and vendor category. AI-native
 | Internal QA maturity | Can audit resolution definitions and sampling | Limited capacity to audit outcome claims |
 | Cost-control priority | Wants cost to scale with actual outcomes | Wants fixed, forecastable monthly spend |
 
-![Three-column framework showing AI-resolves, AI-assists-plus-human-reviews, and human-owns categories of customer support work]({{ "/September%202026/assets/images/outcome-based-pricing-pay-per-resolution-figure-03.webp" | relative_url }}){: loading="lazy" width="1200" height="675"}
+![Three-column framework showing AI-resolves, AI-assists-plus-human-reviews, and human-owns categories of customer support work]({{ "/assets/images/September%202026/outcome-based-pricing-pay-per-resolution-figure-03.webp" | relative_url }}){: loading="lazy" width="1200" height="675"}
 
 *The editorial decision framework mirrors the pricing decision: AI resolves the routine, AI assists on judgment calls, and humans own the cases where a guaranteed outcome actually depends on it.*
 
