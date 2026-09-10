@@ -3,8 +3,8 @@ layout: post
 title: "First Contact Resolution: The Metric That Predicts Retention Risk"
 description: "FCR sits near 70% industry-wide. Learn what first contact resolution measures, why it predicts customer retention risk, and how to raise it."
 slug: "first-contact-resolution-retention-risk"
-date: 2026-09-17
-last_modified_at: 2026-09-17
+date: 2026-09-10
+last_modified_at: 2026-09-10
 categories:
   - customer-support
   - contact-center
