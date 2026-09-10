@@ -3,8 +3,8 @@ layout: post
 title: "First Contact Resolution: The Metric That Predicts Retention Risk"
 description: "FCR sits near 70% industry-wide. Learn what first contact resolution measures, why it predicts customer retention risk, and how to raise it."
 slug: "first-contact-resolution-retention-risk"
-date: 2026-09-17
-last_modified_at: 2026-09-17
+date: 2026-09-10
+last_modified_at: 2026-09-10
 categories:
   - customer-support
   - contact-center
@@ -34,8 +34,6 @@ faq:
     answer: "Complex, escalation-heavy categories like technical support and telecom tend to run lower than retail, e-commerce, and financial services, largely due to third-party dependencies and multi-step troubleshooting (Tollanis, 2026)."
   - question: "Can outsourcing customer support improve FCR?"
     answer: "It can, when the outsourcing model is structured around resolution accountability rather than seat-time; Callnovo's Pay per Resolution service, for example, contracts on a 90%+ FCR SLA with performance credits if targets are missed (Callnovo Contact Center, 2026d)."
-redirect_from:
-  - /blog/2026/09/17/first-contact-resolution-retention-risk/
 article_type: "Article"
 reading_time_minutes: 8
 word_count: 1574
