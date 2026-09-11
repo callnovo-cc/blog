@@ -614,47 +614,29 @@ button:focus-visible,
   color: inherit;
 }
 
-/*
-  Markdown tables
-  Applies to every standard Markdown table rendered inside an article.
-  Tables fill the editorial column on desktop and remain scrollable on small screens.
-*/
 .article-body table {
+  display: block;
   width: 100%;
+  overflow-x: auto;
   margin: 24px 0;
   border-collapse: collapse;
-  table-layout: auto;
   font-size: 0.94rem;
-  line-height: 1.45;
+  -webkit-overflow-scrolling: touch;
 }
 
 .article-body th,
 .article-body td {
-  padding: 0.95rem 1.125rem;
+  min-width: 140px;
+  padding: 12px 14px;
   border: 1px solid var(--border);
   text-align: left;
-  vertical-align: middle;
+  vertical-align: top;
 }
 
 .article-body th {
   background: var(--surface-soft);
   color: var(--navy);
   font-weight: 800;
-}
-
-.article-body tbody tr:nth-child(even) td {
-  background: var(--surface-tint);
-}
-
-/* Preserve Markdown alignment markers such as |---:| and |:---:|. */
-.article-body th[align="right"],
-.article-body td[align="right"] {
-  text-align: right;
-}
-
-.article-body th[align="center"],
-.article-body td[align="center"] {
-  text-align: center;
 }
 
 .article-body a {
@@ -879,19 +861,6 @@ button:focus-visible,
 
   .article-body h3 {
     font-size: 1.15rem;
-  }
-
-  .article-body table {
-    display: block;
-    max-width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .article-body th,
-  .article-body td {
-    min-width: 140px;
-    padding: 0.75rem 0.875rem;
   }
 
   .footer-shell {
