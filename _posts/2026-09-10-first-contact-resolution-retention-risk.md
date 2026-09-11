@@ -61,13 +61,38 @@ What is a good first contact resolution rate? It depends heavily on industry and
 
 **First contact resolution rate by industry:**
 
-| Industry | Average FCR |
-|---|---|
-| Financial Services | 78% |
-| Insurance | 74% |
-| Utilities | 73% |
-| Healthcare | 71% |
-| Retail / E-Commerce | 65–75% |
+<div class="fcr-benchmark-table-wrap">
+  <table class="fcr-benchmark-table">
+    <thead>
+      <tr>
+        <th scope="col">Industry</th>
+        <th scope="col">Average FCR</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Financial Services</td>
+        <td>78%</td>
+      </tr>
+      <tr>
+        <td>Insurance</td>
+        <td>74%</td>
+      </tr>
+      <tr>
+        <td>Utilities</td>
+        <td>73%</td>
+      </tr>
+      <tr>
+        <td>Healthcare</td>
+        <td>71%</td>
+      </tr>
+      <tr>
+        <td>Retail / E-Commerce</td>
+        <td>65–75%</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 *Source: [SQM Group / Tollanis, 2025 industry benchmarking data (Tollanis, 2026)](https://tollanis.com/blog/first-call-resolution-benchmarks-formula-and-ways-to-improve-it)*
 
