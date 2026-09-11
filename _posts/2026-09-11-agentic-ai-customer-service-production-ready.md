@@ -172,10 +172,6 @@ Callnovo’s hybrid page reports that AI workflows can handle up to 70% of routi
 
 [Vince Lupe](https://www.linkedin.com/in/vince-lupe/) is Marketing Specialist at Callnovo Contact Center.
 
-## Disclosure
-
-This article discusses Callnovo products and services. Callnovo’s canonical documentation governs company facts and metric definitions; current callnovo.ai pages supply nonconflicting product information where canon is silent. Website outcome figures are indicative marketing outcomes, not universal guarantees.
-
 ## References
 
 Bouine, B. (2026). *The state of agentic AI in 2026: Capabilities, limitations, and production readiness.* [https://www.brahimbouine.com/blog/agentic-ai-state-of-art-2026-landscape/](https://www.brahimbouine.com/blog/agentic-ai-state-of-art-2026-landscape/)
