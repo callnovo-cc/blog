@@ -1,0 +1,91 @@
+name: Notify root site of new post
+
+# When a new article is pushed to _posts, wait until GitHub Pages has rebuilt and
+# the post is actually visible in the live feed, then tell
+# callnovo-cc/callnovo-cc.github.io to refresh the article list on the host-root
+# homepage.
+#
+# The wait matters: the root site regenerates its list from this site's live
+# feed.xml, so dispatching before the Pages build finishes would produce a no-op
+# run and the homepage would stay a post behind until the next scheduled run.
+#
+# Requires a repository secret named INSIGHTS_DISPATCH_TOKEN: a fine-grained
+# personal access token scoped to callnovo-cc/callnovo-cc.github.io with
+# "Contents: read and write" permission. GITHUB_TOKEN cannot trigger workflows in
+# another repository, which is why a PAT is needed here.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "_posts/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: notify-insights-published
+  cancel-in-progress: false
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Confirm the dispatch token is configured
+        env:
+          TOKEN: ${{ secrets.INSIGHTS_DISPATCH_TOKEN }}
+        run: |
+          if [ -z "${TOKEN}" ]; then
+            echo "::error::INSIGHTS_DISPATCH_TOKEN is not set. Add it under" \
+                 "Settings > Secrets and variables > Actions, or the root site's" \
+                 "homepage will only update on its twice-daily schedule."
+            exit 1
+          fi
+          echo "Token present."
+
+      - name: Wait for the newest post to appear in the live feed
+        id: wait
+        run: |
+          set -euo pipefail
+
+          newest="$(ls _posts/*.md | sort | tail -1)"
+          base="$(basename "${newest}" .md)"
+          year="${base:0:4}"; month="${base:5:2}"; day="${base:8:2}"
+          slug="${base:11}"
+          url="https://callnovo-cc.github.io/blog/${year}/${month}/${day}/${slug}/"
+          echo "Newest post file: ${newest}"
+          echo "Expecting live URL: ${url}"
+
+          for attempt in $(seq 1 30); do
+            if curl -sSf --max-time 30 \
+                 https://callnovo-cc.github.io/blog/feed.xml \
+                 | grep -qF "${url}"; then
+              echo "Live in feed after ${attempt} attempt(s)."
+              echo "ready=true" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            echo "Attempt ${attempt}: not in feed yet; waiting 20s."
+            sleep 20
+          done
+
+          echo "::warning::Post did not appear in the feed within 10 minutes." \
+               "Dispatching anyway; the root site re-reads the live feed and its" \
+               "twice-daily schedule will catch it if the build is still pending."
+          echo "ready=false" >> "$GITHUB_OUTPUT"
+
+      - name: Tell the root site to refresh
+        env:
+          GH_TOKEN: ${{ secrets.INSIGHTS_DISPATCH_TOKEN }}
+        run: |
+          set -euo pipefail
+          gh api \
+            --method POST \
+            -H "Accept: application/vnd.github+json" \
+            /repos/callnovo-cc/callnovo-cc.github.io/dispatches \
+            -f event_type=insights-published \
+            -F "client_payload[feed_ready]=${{ steps.wait.outputs.ready }}"
+          echo "Dispatch sent to callnovo-cc.github.io."
