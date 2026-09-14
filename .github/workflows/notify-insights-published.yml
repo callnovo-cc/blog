@@ -53,10 +53,13 @@ jobs:
           echo "Newest post file: ${newest}"
           echo "Expecting live URL: ${url}"
 
+          # Download, then grep. Piping curl into `grep -q` breaks under
+          # `pipefail`: grep exits as soon as it matches, curl dies on EPIPE, and
+          # the pipeline reports failure on the very success we are testing for.
           for attempt in $(seq 1 30); do
-            if curl -sSf --max-time 30 \
+            if curl -sSf --max-time 30 -o "$RUNNER_TEMP/feed-check.xml" \
                  https://callnovo-cc.github.io/blog/feed.xml \
-                 | grep -qF "${url}"; then
+               && grep -qF "${url}" "$RUNNER_TEMP/feed-check.xml"; then
               echo "Live in feed after ${attempt} attempt(s)."
               exit 0
             fi
