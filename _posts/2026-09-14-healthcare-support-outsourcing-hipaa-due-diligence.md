@@ -47,7 +47,7 @@ sitemap: true
 
 *Outsourced patient contact is administrative work on regulated data — which is exactly why the vendor agreement matters more than the vendor’s marketing.*
 
-> Healthcare customer support outsourcing generally creates a business-associate relationship when the vendor creates, receives, maintains, or transmits protected health information (PHI) for a covered entity. A written agreement should be in place before PHI access begins. But the agreement is the regulatory floor, not a diligence file: HIPAA does not require continuous vendor monitoring, so evidence rights, security requirements, and response deadlines must be negotiated and verified [(45 C.F.R. § 164.502, 2026)](https://www.ecfr.gov/current/title-45/section-164.502)[(HHS OCR, n.d.-a)](https://www.hhs.gov/hipaa/for-professionals/faq/business-associates/index.html).
+> **TL;DR.** Healthcare customer support outsourcing generally creates a business-associate relationship when the vendor creates, receives, maintains, or transmits protected health information (PHI) for a covered entity. A written agreement should be in place before PHI access begins. But the agreement is the regulatory floor, not a diligence file: HIPAA does not require continuous vendor monitoring, so evidence rights, security requirements, and response deadlines must be negotiated and verified [(45 C.F.R. § 164.502, 2026)](https://www.ecfr.gov/current/title-45/section-164.502)[(HHS OCR, n.d.-a)](https://www.hhs.gov/hipaa/for-professionals/faq/business-associates/index.html).
 
 <!--more-->
 
