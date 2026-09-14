@@ -1,18 +1,23 @@
-name: Notify root site of new post
+name: Refresh root site after publishing
 
 # When a new article is pushed to _posts, wait until GitHub Pages has rebuilt and
-# the post is actually visible in the live feed, then tell
-# callnovo-cc/callnovo-cc.github.io to refresh the article list on the host-root
-# homepage.
+# the post is actually visible in the live feed, then update the article list on
+# the host-root homepage in callnovo-cc/callnovo-cc.github.io.
 #
-# The wait matters: the root site regenerates its list from this site's live
-# feed.xml, so dispatching before the Pages build finishes would produce a no-op
-# run and the homepage would stay a post behind until the next scheduled run.
+# Why the wait: the root homepage list is generated from THIS site's live
+# feed.xml. Acting before the Pages build finishes would regenerate the list from
+# a feed that does not yet contain the new post, leaving the homepage a post
+# behind until its next scheduled run.
 #
-# Requires a repository secret named INSIGHTS_DISPATCH_TOKEN: a fine-grained
-# personal access token scoped to callnovo-cc/callnovo-cc.github.io with
-# "Contents: read and write" permission. GITHUB_TOKEN cannot trigger workflows in
-# another repository, which is why a PAT is needed here.
+# Why a deploy key rather than a PAT: GITHUB_TOKEN cannot write to another
+# repository, and a personal access token would be scoped to the whole account.
+# INSIGHTS_DEPLOY_KEY is an SSH key whose write access is limited to
+# callnovo-cc.github.io and nothing else. Revoke it any time under that repo's
+# Settings > Deploy keys.
+#
+# The regeneration logic itself lives in the root repository
+# (scripts/refresh_insights.py) and is run from the checkout below, so there is
+# only ever one copy of it.
 
 on:
   push:
@@ -25,27 +30,15 @@ permissions:
   contents: read
 
 concurrency:
-  group: notify-insights-published
+  group: refresh-root-site
   cancel-in-progress: false
 
 jobs:
-  notify:
+  refresh:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
+      - name: Check out this repository
         uses: actions/checkout@v4
-
-      - name: Confirm the dispatch token is configured
-        env:
-          TOKEN: ${{ secrets.INSIGHTS_DISPATCH_TOKEN }}
-        run: |
-          if [ -z "${TOKEN}" ]; then
-            echo "::error::INSIGHTS_DISPATCH_TOKEN is not set. Add it under" \
-                 "Settings > Secrets and variables > Actions, or the root site's" \
-                 "homepage will only update on its twice-daily schedule."
-            exit 1
-          fi
-          echo "Token present."
 
       - name: Wait for the newest post to appear in the live feed
         id: wait
@@ -65,27 +58,51 @@ jobs:
                  https://callnovo-cc.github.io/blog/feed.xml \
                  | grep -qF "${url}"; then
               echo "Live in feed after ${attempt} attempt(s)."
-              echo "ready=true" >> "$GITHUB_OUTPUT"
               exit 0
             fi
-            echo "Attempt ${attempt}: not in feed yet; waiting 20s."
+            echo "Attempt ${attempt}/30: not in feed yet; waiting 20s."
             sleep 20
           done
 
           echo "::warning::Post did not appear in the feed within 10 minutes." \
-               "Dispatching anyway; the root site re-reads the live feed and its" \
-               "twice-daily schedule will catch it if the build is still pending."
-          echo "ready=false" >> "$GITHUB_OUTPUT"
+               "Continuing anyway - the refresh reads the live feed, and the root" \
+               "site's twice-daily schedule will catch it if the build is still" \
+               "pending."
 
-      - name: Tell the root site to refresh
-        env:
-          GH_TOKEN: ${{ secrets.INSIGHTS_DISPATCH_TOKEN }}
+      - name: Load the deploy key
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.INSIGHTS_DEPLOY_KEY }}
+
+      - name: Check out the root site
         run: |
           set -euo pipefail
-          gh api \
-            --method POST \
-            -H "Accept: application/vnd.github+json" \
-            /repos/callnovo-cc/callnovo-cc.github.io/dispatches \
-            -f event_type=insights-published \
-            -F "client_payload[feed_ready]=${{ steps.wait.outputs.ready }}"
-          echo "Dispatch sent to callnovo-cc.github.io."
+          mkdir -p ~/.ssh
+          ssh-keyscan -t rsa,ecdsa,ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          git clone --depth 1 \
+            git@github.com:callnovo-cc/callnovo-cc.github.io.git root-site
+          echo "Root site checked out."
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Regenerate the article list
+        working-directory: root-site
+        run: python3 scripts/refresh_insights.py
+
+      - name: Commit and push if the article set moved
+        working-directory: root-site
+        run: |
+          set -euo pipefail
+          if git diff --quiet; then
+            echo "No change - the root homepage already lists this article."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html sitemap.xml sitemap-site.xml
+          git commit -m "Refresh Insights article list on the root homepage [skip ci]"
+          git push
+          echo "Root homepage updated. GitHub Pages will rebuild shortly."
