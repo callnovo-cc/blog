@@ -254,10 +254,6 @@ Not independently. The agent may capture the customer’s allegation, authentica
 
 [Vince Lupe](https://www.linkedin.com/in/vince-lupe/) is Marketing Specialist at Callnovo Contact Center.
 
-## Disclosure
-
-This article provides operational guidance, not legal advice. Applicability should be reviewed with qualified counsel, compliance, sponsor banks, acquirers, networks, and other accountable parties.
-
 ## References
 
 [Board of Governors of the Federal Reserve System. (2025). Economic well-being of U.S. households in 2024: Banking and credit.](https://www.federalreserve.gov/publications/2025-economic-well-being-of-us-households-in-2024-banking-and-credit.htm)
