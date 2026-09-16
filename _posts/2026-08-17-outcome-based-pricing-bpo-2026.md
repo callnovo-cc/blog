@@ -32,6 +32,7 @@ faq:
   - question: "What should a buyer negotiate into an outcome-based contract?"
     answer: "A precise, written definition of \"resolved,\" clear rules for reopened cases, and an explicit list of issue types excluded from the outcome rate. These three items prevent most disputes that surface later in outcome-based engagements."
 article_type: Article
+canonical_url: "https://callnovo-cc.github.io/blog/2026/08/17/outcome-based-pricing-bpo-2026/"
 ---
 
 ![Outcome-based pricing versus per-FTE staffing model comparison concept in a business setting.]({{ '/assets/images/article-03-outcome-vs-fte-hero.webp' | relative_url }})
