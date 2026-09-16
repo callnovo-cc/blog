@@ -1,0 +1,80 @@
+name: Article link audit
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    name: Audit August–September article URLs
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Extract and test every article URL
+        id: audit
+        shell: bash
+        run: |
+          set -uo pipefail
+          mkdir -p audit
+          find _posts -maxdepth 1 -type f \( -name '2026-08-*.md' -o -name '2026-09-*.md' \) -print0 | sort -z | xargs -0 grep -hEo 'https?://[^[:space:]<>)\"\x27]+' | sed -E 's/[.,;:!?]+$//' | sort -u > audit/urls.txt
+          printf 'url,final_url,http_code,result\n' > audit/article-link-audit.csv
+          failures=0
+          while IFS= read -r url; do
+            response=$(curl --location --silent --show-error --output /dev/null --write-out '%{url_effective}|%{http_code}' --connect-timeout 15 --max-time 45 --retry 2 --retry-delay 2 --user-agent 'Callnovo-Link-Audit/1.0' "$url" 2>&1)
+            curl_exit=$?
+            if [ $curl_exit -ne 0 ]; then
+              final_url=''
+              code="curl_error_${curl_exit}"
+              result='REVIEW'
+              failures=$((failures+1))
+            else
+              final_url=${response%|*}
+              code=${response##*|}
+              if [ "$code" = '200' ]; then
+                result='PASS'
+              else
+                result='FAIL'
+                failures=$((failures+1))
+              fi
+            fi
+            esc_url=$(printf '%s' "$url" | sed 's/"/""/g')
+            esc_final=$(printf '%s' "$final_url" | sed 's/"/""/g')
+            printf '"%s","%s",%s,%s\n' "$esc_url" "$esc_final" "$code" "$result" >> audit/article-link-audit.csv
+          done < audit/urls.txt
+          {
+            echo '# Article link audit'
+            echo
+            echo 'Scope: all HTTP(S) URLs extracted from `_posts/2026-08-*.md` and `_posts/2026-09-*.md`.'
+            echo
+            echo "- Unique URLs checked: $(wc -l < audit/urls.txt)"
+            echo "- Final 200 passes: $(grep -c ',PASS$' audit/article-link-audit.csv || true)"
+            echo "- Failures or manual-review results: $failures"
+            echo
+            echo '## Non-passing results'
+            echo
+            echo '| URL | Final URL | HTTP result | Classification |'
+            echo '|---|---|---:|---|'
+            awk -F, 'NR>1 && $NF != "PASS" {print "| " $1 " | " $2 " | " $(NF-1) " | " $NF " |"}' audit/article-link-audit.csv
+          } > audit/article-link-audit.md
+          if [ "$failures" -gt 0 ]; then
+            exit 1
+          fi
+
+      - name: Upload complete audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: article-link-audit
+          path: audit/
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Publish summary
+        if: always()
+        shell: bash
+        run: cat audit/article-link-audit.md >> "$GITHUB_STEP_SUMMARY"
