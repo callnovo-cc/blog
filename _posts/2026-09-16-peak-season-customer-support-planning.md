@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Peak-Season Customer Support Planning: Prime Day, Black Friday, and Holiday Volume"
+title: "Peak Season Customer Support Planning: Prime Day, Black Friday, and Holiday Volume"
 description: "Build a peak season customer support plan for Prime Day, Black Friday, holiday delivery, and returns with a practical 12-week readiness timeline."
 slug: "peak-season-customer-support-planning"
 date: 2026-09-16
