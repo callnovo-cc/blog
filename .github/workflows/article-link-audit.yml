@@ -19,9 +19,20 @@ jobs:
         id: audit
         shell: bash
         run: |
-          set -uo pipefail
+          set -u
           mkdir -p audit
-          find _posts -maxdepth 1 -type f \( -name '2026-08-*.md' -o -name '2026-09-*.md' \) -print0 | sort -z | xargs -0 grep -hEo 'https?://[^[:space:]<>)\"\x27]+' | sed -E 's/[.,;:!?]+$//' | sort -u > audit/urls.txt
+          python3 - <<'PY'
+          import csv
+          import re
+          from pathlib import Path
+
+          pattern = re.compile(r'https?://[^\s<>\)\]\}\"\x27]+')
+          urls = set()
+          for path in sorted(Path('_posts').glob('2026-08-*.md')) + sorted(Path('_posts').glob('2026-09-*.md')):
+              urls.update(match.rstrip('.,;:!?') for match in pattern.findall(path.read_text(encoding='utf-8')))
+          with open('audit/urls.txt', 'w', encoding='utf-8') as f:
+              f.write('\n'.join(sorted(urls)) + ('\n' if urls else ''))
+          PY
           printf 'url,final_url,http_code,result\n' > audit/article-link-audit.csv
           failures=0
           while IFS= read -r url; do
@@ -31,7 +42,7 @@ jobs:
               final_url=''
               code="curl_error_${curl_exit}"
               result='REVIEW'
-              failures=$((failures+1))
+              failures=$((failures + 1))
             else
               final_url=${response%|*}
               code=${response##*|}
@@ -39,31 +50,48 @@ jobs:
                 result='PASS'
               else
                 result='FAIL'
-                failures=$((failures+1))
+                failures=$((failures + 1))
               fi
             fi
-            esc_url=$(printf '%s' "$url" | sed 's/"/""/g')
-            esc_final=$(printf '%s' "$final_url" | sed 's/"/""/g')
-            printf '"%s","%s",%s,%s\n' "$esc_url" "$esc_final" "$code" "$result" >> audit/article-link-audit.csv
+            printf '%s\t%s\t%s\t%s\n' "$url" "$final_url" "$code" "$result" >> audit/article-link-audit.tsv
           done < audit/urls.txt
-          {
-            echo '# Article link audit'
-            echo
-            echo 'Scope: all HTTP(S) URLs extracted from `_posts/2026-08-*.md` and `_posts/2026-09-*.md`.'
-            echo
-            echo "- Unique URLs checked: $(wc -l < audit/urls.txt)"
-            echo "- Final 200 passes: $(grep -c ',PASS$' audit/article-link-audit.csv || true)"
-            echo "- Failures or manual-review results: $failures"
-            echo
-            echo '## Non-passing results'
-            echo
-            echo '| URL | Final URL | HTTP result | Classification |'
-            echo '|---|---|---:|---|'
-            awk -F, 'NR>1 && $NF != "PASS" {print "| " $1 " | " $2 " | " $(NF-1) " | " $NF " |"}' audit/article-link-audit.csv
-          } > audit/article-link-audit.md
-          if [ "$failures" -gt 0 ]; then
-            exit 1
-          fi
+          python3 - <<'PY'
+          import csv
+          from pathlib import Path
+
+          rows = []
+          tsv = Path('audit/article-link-audit.tsv')
+          if tsv.exists():
+              for line in tsv.read_text(encoding='utf-8').splitlines():
+                  rows.append(line.split('\t', 3))
+          with open('audit/article-link-audit.csv', 'w', newline='', encoding='utf-8') as f:
+              writer = csv.writer(f)
+              writer.writerow(['url', 'final_url', 'http_code', 'result'])
+              writer.writerows(rows)
+          passed = sum(row[3] == 'PASS' for row in rows)
+          failed = len(rows) - passed
+          lines = [
+              '# Article link audit',
+              '',
+              'Scope: every HTTP(S) URL extracted from August and September 2026 post files.',
+              '',
+              f'- Unique URLs checked: {len(rows)}',
+              f'- Final 200 passes: {passed}',
+              f'- Failures or manual-review results: {failed}',
+              '',
+              '## Non-passing results',
+              '',
+              '| URL | Final URL | HTTP result | Classification |',
+              '|---|---|---:|---|',
+          ]
+          for url, final_url, code, result in rows:
+              if result != 'PASS':
+                  lines.append(f'| {url} | {final_url or "—"} | {code} | {result} |')
+          if failed == 0:
+              lines.append('| None | — | 200 | PASS |')
+          Path('audit/article-link-audit.md').write_text('\n'.join(lines) + '\n', encoding='utf-8')
+          PY
+          echo "failures=$failures" >> "$GITHUB_OUTPUT"
 
       - name: Upload complete audit report
         if: always()
@@ -71,10 +99,20 @@ jobs:
         with:
           name: article-link-audit
           path: audit/
-          if-no-files-found: error
+          if-no-files-found: warn
           retention-days: 14
 
       - name: Publish summary
         if: always()
         shell: bash
-        run: cat audit/article-link-audit.md >> "$GITHUB_STEP_SUMMARY"
+        run: |
+          if [ -f audit/article-link-audit.md ]; then
+            cat audit/article-link-audit.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo 'Audit report could not be generated; inspect the extraction step log.' >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Fail when review is required
+        if: steps.audit.outputs.failures != '0'
+        shell: bash
+        run: exit 1
