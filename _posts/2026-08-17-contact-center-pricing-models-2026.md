@@ -27,8 +27,6 @@ word_count: 1547
 reading_time_minutes: 7
 article_type: "Article"
 canonical_url: "https://callnovo-cc.github.io/blog/2026/08/17/contact-center-pricing-models-2026/"
-redirect_from:
-  - /blog/2026/08/17/contact-center-pricing-models-2026/
 breadcrumbs: true
 twitter_creator: "@callnovocc"
 sponsored: false
